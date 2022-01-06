@@ -1,0 +1,16 @@
+make all --dry-run --keep-going --print-directory
+make: Entering directory '/workspace/vehicle_signal_specification'
+rm -f vss_rel_*
+(cd ./vss-tools/contrib/vspec2c/; make clean)
+./vss-tools/vspec2json.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$(cat VERSION).json
+./vss-tools/vspec2franca.py -v $(cat VERSION)  -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$(cat VERSION).fidl
+./vss-tools/vspec2yaml.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$(cat VERSION).yaml
+./vss-tools/vspec2csv.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$(cat VERSION).csv
+gcc -shared -o ./vss-tools/binary/binarytool.so -fPIC ./vss-tools/binary/binarytool.c
+./vss-tools/vspec2binary.py ./spec/VehicleSignalSpecification.vspec vss_rel_$(cat VERSION).binary
+ 
+PYTHONPATH=./vss-tools pytest
+./vss-tools/contrib/vspec2protobuf.py  -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$(cat VERSION).proto
+./vss-tools/contrib/vspec2graphql.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$(cat VERSION).graphql.ts
+make: Leaving directory '/workspace/vehicle_signal_specification'
+ 

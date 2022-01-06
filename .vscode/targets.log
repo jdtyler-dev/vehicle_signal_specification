@@ -1,0 +1,529 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Thu Jan  6 19:48:01 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+RUBY_VERSION = ruby-2.7.4
+# automatic
+?F = $(notdir $?)
+# environment
+GP_OPEN_EDITOR = /ide/bin/gitpod-code
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_AGENT_FOLDER = /workspace/.vscode-remote
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+VSX_REGISTRY_URL = https://open-vsx.gitpod.io
+# environment
+GRADLE_HOME = /home/gitpod/.sdkman/candidates/gradle/current
+# environment
+rvm_path = /home/gitpod/.rvm
+# environment
+SUPERVISOR_ADDR = localhost:22999
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /workspace/vehicle_signal_specification
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-US","availableLanguages":{}}
+# environment
+_ = /ide/node
+# environment
+GITPOD_THEIA_PORT = 23000
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+GITPOD_ANALYTICS_WRITER = segment
+# environment
+GO_VERSION = 1.17.3
+# environment
+MAVEN_HOME = /home/gitpod/.sdkman/candidates/maven/current
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+GITPOD_WORKSPACE_CONTEXT_URL = https://github.com/platproit/vehicle_signal_specification.git
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+THEIA_WORKSPACE_ROOT = /workspace/vehicle_signal_specification
+# environment
+INFOPATH = :/home/linuxbrew/.linuxbrew/share/info
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+GIT_EDITOR = /ide/bin/gitpod-code --wait
+# environment
+VSCODE_CWD = /ide
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /ide/bin:/home/gitpod/.nix-profile/bin:/home/gitpod/.nix-profile/bin:/home/gitpod/.pyenv/plugins/pyenv-virtualenv/shims:/home/gitpod/.nix-profile/bin:/home/gitpod/.nix-profile/bin:/home/gitpod/.sdkman/candidates/maven/current/bin:/home/gitpod/.sdkman/candidates/java/current/bin:/home/gitpod/.sdkman/candidates/gradle/current/bin:/home/gitpod/.rvm/gems/ruby-2.7.4/bin:/home/gitpod/.rvm/gems/ruby-2.7.4@global/bin:/home/gitpod/.rvm/rubies/ruby-2.7.4/bin:/home/gitpod/.pyenv/plugins/pyenv-virtualenv/shims:/ide/bin:/workspace/.cargo/bin:/workspace/.rvm/bin:/workspace/.pip-modules/bin:/home/gitpod/.pyenv/bin:/home/gitpod/.pyenv/shims:/workspace/go/bin:/home/gitpod/go/bin:/home/gitpod/go-packages/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/:/home/gitpod/.nvm/versions/node/v16.13.0/bin:/home/gitpod/.cargo/bin:/usr/games:/usr/games:/home/gitpod/.nvm/versions/node/v16.13.0/bin:/home/gitpod/.rvm/bin:/home/gitpod/.nvm/versions/node/v16.13.0/bin:/home/gitpod/.nvm/versions/node/v16.13.0/bin
+# makefile (from 'Makefile', line 23)
+TOOLSDIR = ./vss-tools
+# environment
+GITPOD_WORKSPACE_ID = harlequin-gayal-gr33iwou
+# environment
+GITPOD_INTERVAL = 30000
+# environment
+CARGO_HOME = /workspace/.cargo
+# environment
+rvm_stored_umask = 0022
+# environment
+GITPOD_WORKSPACE_CLUSTER_HOST = ws-us25.gitpod.io
+# environment
+GITPOD_ANALYTICS_SEGMENT_KEY = bUY8IRdJ42KjLOBS9LoIHMYFBD8rSzjU
+# environment
+SDKMAN_DIR = /home/gitpod/.sdkman
+# environment
+SDKMAN_CANDIDATES_API = https://api.sdkman.io/2
+# environment
+CLOJURE_VERSION = 1.10.3.1029
+# environment
+GOPATH = /workspace/go
+# environment
+SDKMAN_PLATFORM = linuxx64
+# environment
+VSCODE_LOG_STACK = false
+# environment
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-27163133-0bfd-4c08-a1eb-1ca82e656919.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+NIX_VERSION = 2.3.14
+# environment
+LS_COLORS = 
+# automatic
+%F = $(notdir $%)
+# environment
+GP_PREVIEW_BROWSER = /ide/bin/gitpod-code --preview
+# environment
+VISUAL = /ide/bin/gitpod-code
+# environment
+NIX_SSL_CERT_FILE = /etc/ssl/certs/ca-certificates.crt
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+rvm_bin_path = /home/gitpod/.rvm/bin
+# environment
+WORKSPACEKIT_WRAP_NETNS = true
+# default
+.LOADED := 
+# environment
+GEM_HOME = /home/gitpod/.rvm/gems/ruby-2.7.4
+# makefile (from 'Makefile', line 24)
+DEPLOYDIR = ./docs-gen/static/releases/nightly
+# environment
+MANPATH = /home/gitpod/.nix-profile/share/man:/home/gitpod/.nix-profile/share/man:/home/gitpod/.nix-profile/share/man:/home/gitpod/.nix-profile/share/man::/home/linuxbrew/.linuxbrew/share/man
+# environment
+NODE_VERSION = 16.13.0
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/server/remoteExtensionHostProcess
+# environment
+PYENV_SHELL = bash
+# environment
+HOME = /home/gitpod
+# environment
+THEIA_WEBVIEW_EXTERNAL_ENDPOINT = webview-{{hostname}}
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+GITPOD_CLI_APITOKEN = utvT1h4vVYPazYhRKDGW8pHEKlZhWVuv
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+HOSTNAME = ws-8e7f28a5-1450-4b82-9d3b-dc5d375de1f5
+# environment
+GRADLE_USER_HOME = /workspace/.gradle/
+# environment
+MAKELEVEL := 0
+# environment
+GEM_PATH = /home/gitpod/.rvm/gems/ruby-2.7.4:/home/gitpod/.rvm/gems/ruby-2.7.4@global
+# environment
+SDKMAN_VERSION = 5.13.0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+IRBRC = /home/gitpod/.rvm/rubies/ruby-2.7.4/.irbrc
+# environment
+SHLVL = 0
+# environment
+NIX_PATH = /home/gitpod/.nix-defexpr/channels:/home/gitpod/.nix-defexpr/channels:/home/gitpod/.nix-defexpr/channels:/home/gitpod/.nix-defexpr/channels
+# environment
+NIX_PROFILES = /nix/var/nix/profiles/default /home/gitpod/.nix-profile
+# environment
+GITPOD_GIT_USER_NAME = JDTyler
+# environment
+JAVA_HOME = /home/gitpod/.sdkman/candidates/java/current
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = gitpod
+# makefile
+.DEFAULT_GOAL := all
+# environment
+GITPOD_EXTERNAL_EXTENSIONS = []
+# environment
+GOROOT = /home/gitpod/go
+# makefile (from 'Makefile', line 22)
+DESTDIR = /usr/local
+# environment
+GITPOD_IDE_ALIAS = code-latest
+# environment
+rvm_version = 1.29.12 (latest)
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+GITPOD_REPO_ROOT = /workspace/vehicle_signal_specification
+# environment
+PIP_USER = no
+# environment
+THEIA_RATELIMIT_LOG = 50
+# environment
+THEIA_MINI_BROWSER_HOST_PATTERN = browser-{{hostname}}
+# environment
+TRIGGER_BREW_REBUILD = 5
+# environment
+GITPOD_GIT_USER_EMAIL = jdtyler@platprodiag.com
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+GITPOD_HOST = https://gitpod.io
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+NVM_DIR = /home/gitpod/.nvm
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+rvm_user_install_flag = 1
+# environment
+BROWSER = /ide/bin/helpers/browser.sh
+# environment
+GITPOD_MEMORY = 2576
+# environment
+GITPOD_TASKS = [{"init":"make"},{"command":"git submodule update --init"}]
+# default
+MAKEFILES := 
+# environment
+GITPOD_CODE_HOST = https://gitpod.io
+# environment
+HOMEBREW_NO_AUTO_UPDATE = 1
+# automatic
+<F = $(notdir $<)
+# environment
+PIPENV_VENV_IN_PROJECT = true
+# environment
+TRIGGER_REBUILD = 1
+# environment
+GP_EXTERNAL_BROWSER = /ide/bin/gitpod-code --openExternal
+ 
+# environment
+SDKMAN_CANDIDATES_DIR = /home/gitpod/.sdkman/candidates
+# environment
+EDITOR = /ide/bin/gitpod-code
+# environment
+PWD = /workspace/vehicle_signal_specification
+# environment
+LC_ALL = C
+# environment
+GITPOD_WORKSPACE_CONTEXT = {"isFile":false,"path":"","title":"platproit/vehicle_signal_specification - master","ref":"master","refType":"branch","revision":"965d035904a124c4b9f4a14c990dcd78e3b1b83d","repository":{"cloneUrl":"https://github.com/platproit/vehicle_signal_specification.git","host":"github.com","name":"vehicle_signal_specification","owner":"platproit","private":false,"fork":{"parent":{"cloneUrl":"https://github.com/COVESA/vehicle_signal_specification.git","host":"github.com","name":"vehicle_signal_specification","owner":"COVESA","private":false}}},"normalizedContextURL":"https://github.com/platproit/vehicle_signal_specification.git","snapshotBucketId":"workspaces/scarlet-donkey-c4k4oeta/snapshot-1641497334651989618.tar@gitpod-prod-user-1d54d769-b81b-4c6f-b310-649c59dd955e","prebuildWorkspaceId":"c931e03b-eb90-428b-87de-f82b54f56adc","wasPrebuilt":true}
+# environment
+JAVA_TOOL_OPTIONS =  -Xmx2576m
+# automatic
+^F = $(notdir $^)
+# environment
+rvm_prefix = /home/gitpod
+# default
+SUFFIXES := 
+# environment
+APACHE_DOCROOT_IN_REPO = public
+# environment
+PYENV_VIRTUALENV_INIT = 1
+# environment
+NGINX_DOCROOT_IN_REPO = public
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+VSCODE_INJECT_NODE_MODULE_LOOKUP_PATH = /ide/remote/node_modules
+# environment
+rvm_loaded_flag = 1
+# environment
+GITPOD_INSTANCE_ID = 8e7f28a5-1450-4b82-9d3b-dc5d375de1f5
+# environment
+GITPOD_WORKSPACE_URL = https://harlequin-gayal-gr33iwou.ws-us25.gitpod.io
+# default
+.RECIPEPREFIX := 
+# environment
+GITPOD_RESOLVED_EXTENSIONS = {"vscode.bat@1.44.2":{"fullPluginName":"vscode.bat@1.44.2","url":"local","kind":"builtin"},"vscode.clojure@1.44.2":{"fullPluginName":"vscode.clojure@1.44.2","url":"local","kind":"builtin"},"vscode.coffeescript@1.44.2":{"fullPluginName":"vscode.coffeescript@1.44.2","url":"local","kind":"builtin"},"vscode.cpp@1.44.2":{"fullPluginName":"vscode.cpp@1.44.2","url":"local","kind":"builtin"},"vscode.csharp@1.44.2":{"fullPluginName":"vscode.csharp@1.44.2","url":"local","kind":"builtin"},"llvm-vs-code-extensions.vscode-clangd@0.1.5":{"fullPluginName":"llvm-vs-code-extensions.vscode-clangd@0.1.5","url":"local","kind":"builtin"},"vscode.css@1.51.1":{"fullPluginName":"vscode.css@1.51.1","url":"local","kind":"builtin"},"vscode.css-language-features@1.51.1":{"fullPluginName":"vscode.css-language-features@1.51.1","url":"local","kind":"builtin"},"vscode.debug-auto-launch@1.44.2":{"fullPluginName":"vscode.debug-auto-launch@1.44.2","url":"local","kind":"builtin"},"vscode.emmet@1.44.2":{"fullPluginName":"vscode.emmet@1.44.2","url":"local","kind":"builtin"},"vscode.fsharp@1.44.2":{"fullPluginName":"vscode.fsharp@1.44.2","url":"local","kind":"builtin"},"vscode.go@1.44.2":{"fullPluginName":"vscode.go@1.44.2","url":"local","kind":"builtin"},"vscode.groovy@1.44.2":{"fullPluginName":"vscode.groovy@1.44.2","url":"local","kind":"builtin"},"vscode.handlebars@1.44.2":{"fullPluginName":"vscode.handlebars@1.44.2","url":"local","kind":"builtin"},"vscode.hlsl@1.44.2":{"fullPluginName":"vscode.hlsl@1.44.2","url":"local","kind":"builtin"},"vscode.html@1.51.1":{"fullPluginName":"vscode.html@1.51.1","url":"local","kind":"builtin"},"vscode.html-language-features@1.51.1":{"fullPluginName":"vscode.html-language-features@1.51.1","url":"local","kind":"builtin"},"vscode.ini@1.44.2":{"fullPluginName":"vscode.ini@1.44.2","url":"local","kind":"builtin"},"vscode.java@1.53.2":{"fullPluginName":"vscode.java@1.53.2","url":"local","kind":"builtin"},"vscode.javascript@1.44.2":{"fullPluginName":"vscode.javascript@1.44.2","url":"local","kind":"builtin"},"vscode.json@1.44.2":{"fullPluginName":"vscode.json@1.44.2","url":"local","kind":"builtin"},"vscode.json-language-features@1.46.1":{"fullPluginName":"vscode.json-language-features@1.46.1","url":"local","kind":"builtin"},"vscode.less@1.44.2":{"fullPluginName":"vscode.less@1.44.2","url":"local","kind":"builtin"},"vscode.log@1.44.2":{"fullPluginName":"vscode.log@1.44.2","url":"local","kind":"builtin"},"vscode.lua@1.44.2":{"fullPluginName":"vscode.lua@1.44.2","url":"local","kind":"builtin"},"vscode.make@1.44.2":{"fullPluginName":"vscode.make@1.44.2","url":"local","kind":"builtin"},"vscode.markdown@1.44.2":{"fullPluginName":"vscode.markdown@1.44.2","url":"local","kind":"builtin"},"vscode.npm@1.39.1":{"fullPluginName":"vscode.npm@1.39.1","url":"local","kind":"builtin"},"vscode.objective-c@1.44.2":{"fullPluginName":"vscode.objective-c@1.44.2","url":"local","kind":"builtin"},"vscode.perl@1.44.2":{"fullPluginName":"vscode.perl@1.44.2","url":"local","kind":"builtin"},"vscode.php@1.44.2":{"fullPluginName":"vscode.php@1.44.2","url":"local","kind":"builtin"},"vscode.powershell@1.44.2":{"fullPluginName":"vscode.powershell@1.44.2","url":"local","kind":"builtin"},"vscode.pug@1.44.2":{"fullPluginName":"vscode.pug@1.44.2","url":"local","kind":"builtin"},"vscode.python@1.47.3":{"fullPluginName":"vscode.python@1.47.3","url":"local","kind":"builtin"},"vscode.r@1.44.2":{"fullPluginName":"vscode.r@1.44.2","url":"local","kind":"builtin"},"vscode.razor@1.44.2":{"fullPluginName":"vscode.razor@1.44.2","url":"local","kind":"builtin"},"vscode.ruby@1.44.2":{"fullPluginName":"vscode.ruby@1.44.2","url":"local","kind":"builtin"},"vscode.rust@1.44.2":{"fullPluginName":"vscode.rust@1.44.2","url":"local","kind":"builtin"},"vscode.scss@1.44.2":{"fullPluginName":"vscode.scss@1.44.2","url":"local","kind":"builtin"},"vscode.shaderlab@1.44.2":{"fullPluginName":"vscode.shaderlab@1.44.2","url":"local","kind":"builtin"},"vscode.shellscript@1.44.2":{"fullPluginName":"vscode.shellscript@1.44.2","url":"local","kind":"builtin"},"vscode.sql@1.44.2":{"fullPluginName":"vscode.sql@1.44.2","url":"local","kind":"builtin"},"vscode.swift@1.44.2":{"fullPluginName":"vscode.swift@1.44.2","url":"local","kind":"builtin"},"vscode.typescript@1.44.2":{"fullPluginName":"vscode.typescript@1.44.2","url":"local","kind":"builtin"},"vscode.typescript-language-features@1.44.2":{"fullPluginName":"vscode.typescript-language-features@1.44.2","url":"local","kind":"builtin"},"vscode.vb@1.44.2":{"fullPluginName":"vscode.vb@1.44.2","url":"local","kind":"builtin"},"vscode.xml@1.44.2":{"fullPluginName":"vscode.xml@1.44.2","url":"local","kind":"builtin"},"vscode.yaml@1.44.2":{"fullPluginName":"vscode.yaml@1.44.2","url":"local","kind":"builtin"},"redhat.java@0.75.0":{"fullPluginName":"redhat.java@0.75.0","url":"local","kind":"builtin"},"vscjava.vscode-java-debug@0.27.1":{"fullPluginName":"vscjava.vscode-java-debug@0.27.1","url":"local","kind":"builtin"},"vscjava.vscode-java-dependency@0.18.0":{"fullPluginName":"vscjava.vscode-java-dependency@0.18.0","url":"local","kind":"builtin"},"ms-vscode.node-debug@1.38.4":{"fullPluginName":"ms-vscode.node-debug@1.38.4","url":"local","kind":"builtin"},"ms-vscode.node-debug2@1.33.0":{"fullPluginName":"ms-vscode.node-debug2@1.33.0","url":"local","kind":"builtin"},"ms-python.python@2020.7.96456":{"fullPluginName":"ms-python.python@2020.7.96456","url":"local","kind":"builtin"},"golang.Go@0.14.4":{"fullPluginName":"golang.go@0.14.4","url":"local","kind":"builtin"},"redhat.vscode-xml@0.11.0":{"fullPluginName":"redhat.vscode-xml@0.11.0","url":"local","kind":"builtin"},"redhat.vscode-yaml@0.8.0":{"fullPluginName":"redhat.vscode-yaml@0.8.0","url":"local","kind":"builtin"},"bmewburn.vscode-intelephense-client@1.4.0":{"fullPluginName":"bmewburn.vscode-intelephense-client@1.4.0","url":"local","kind":"builtin"},"felixfbecker.php-debug@1.13.0":{"fullPluginName":"felixfbecker.php-debug@1.13.0","url":"local","kind":"builtin"},"rust-lang.rust@0.7.8":{"fullPluginName":"rust-lang.rust@0.7.8","url":"local","kind":"builtin"},"vscode.theme-abyss@1.44.2":{"fullPluginName":"vscode.theme-abyss@1.44.2","url":"local","kind":"builtin"},"vscode.theme-kimbie-dark@1.44.2":{"fullPluginName":"vscode.theme-kimbie-dark@1.44.2","url":"local","kind":"builtin"},"vscode.theme-monokai@1.44.2":{"fullPluginName":"vscode.theme-monokai@1.44.2","url":"local","kind":"builtin"},"vscode.theme-monokai-dimmed@1.44.2":{"fullPluginName":"vscode.theme-monokai-dimmed@1.44.2","url":"local","kind":"builtin"},"vscode.theme-quietlight@1.44.2":{"fullPluginName":"vscode.theme-quietlight@1.44.2","url":"local","kind":"builtin"},"vscode.theme-red@1.44.2":{"fullPluginName":"vscode.theme-red@1.44.2","url":"local","kind":"builtin"},"vscode.theme-solarized-dark@1.44.2":{"fullPluginName":"vscode.theme-solarized-dark@1.44.2","url":"local","kind":"builtin"},"vscode.theme-solarized-light@1.44.2":{"fullPluginName":"vscode.theme-solarized-light@1.44.2","url":"local","kind":"builtin"},"vscode.theme-tomorrow-night-blue@1.44.2":{"fullPluginName":"vscode.theme-tomorrow-night-blue@1.44.2","url":"local","kind":"builtin"},"vscode.vscode-theme-seti@1.44.2":{"fullPluginName":"vscode.vscode-theme-seti@1.44.2","url":"local","kind":"builtin"},"vscode.merge-conflict@1.44.2":{"fullPluginName":"vscode.merge-conflict@1.44.2","url":"local","kind":"builtin"},"ms-vscode.references-view@0.0.47":{"fullPluginName":"ms-vscode.references-view@0.0.47","url":"local","kind":"builtin"},"EditorConfig.EditorConfig@0.15.1":{"fullPluginName":"editorconfig.editorconfig@0.15.1","url":"local","kind":"builtin"},"vscode.docker@1.47.3":{"fullPluginName":"vscode.docker@1.47.3","url":"local","kind":"builtin"}}
+# environment
+LANG = C
+# environment
+PYTHONUSERBASE = /workspace/.pip-modules
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# environment
+MY_RUBY_HOME = /home/gitpod/.rvm/rubies/ruby-2.7.4
+# variable set hash-table stats:
+# Load=144/1024=14%, Rehash=0, Collisions=13/176=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2346, inode 1476617340): 18 files, no impossibilities.
+
+# 18 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+graphql:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 50):
+	${TOOLSDIR}/contrib/vspec2graphql.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).graphql.ts
+
+csv:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 37):
+	${TOOLSDIR}/vspec2csv.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).csv
+
+protobuf:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 47):
+	${TOOLSDIR}/contrib/vspec2protobuf.py  -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).proto
+
+c:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 59):
+	(cd ${TOOLSDIR}/contrib/vspec2c/; make )
+	PYTHONPATH=${TOOLSDIR} ${TOOLSDIR}/contrib/vspec2c.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).h vss_rel_$$(cat VERSION)_macro.h
+
+all: clean json franca yaml csv binary tests protobuf graphql
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+.PHONY: clean all travis_targets json franca yaml csv tests binary protobuf ttl graphql ocf c install deploy
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ocf:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 53):
+	${TOOLSDIR}/contrib/ocf/vspec2ocf.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).ocf.json
+
+tests:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 40):
+	PYTHONPATH=${TOOLSDIR} pytest
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-06 19:28:48
+#  File has been updated.
+#  Successfully updated.
+
+yaml:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 34):
+	${TOOLSDIR}/vspec2yaml.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).yaml
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := clean
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  recipe to execute (from 'Makefile', line 63):
+	rm -f vss_rel_*
+	(cd ${TOOLSDIR}/contrib/vspec2c/; make clean)
+
+binary:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 43):
+	gcc -shared -o ${TOOLSDIR}/binary/binarytool.so -fPIC ${TOOLSDIR}/binary/binarytool.c
+	${TOOLSDIR}/vspec2binary.py ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).binary
+
+travis_targets: clean json franca yaml binary csv tests deploy
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+travis_optional: clean c ocf protobuf ttl graphql
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+franca:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+ 
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 31):
+	${TOOLSDIR}/vspec2franca.py -v $$(cat VERSION)  -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).fidl
+
+deploy:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 75):
+	if [ -d $(DEPLOYDIR) ]; then \
+	  rm -f ${DEPLOYDIR}/vss_rel_*;\
+	else \
+	  mkdir -p ${DEPLOYDIR}; \
+	fi;
+	cp  vss_rel_* ${DEPLOYDIR}/
+
+ttl:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 56):
+	${TOOLSDIR}/contrib/vspec2ttl/vspec2ttl.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).ttl
+
+json:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 28):
+	${TOOLSDIR}/vspec2json.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).json
+
+install:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 67):
+	git submodule init
+	git submodule update
+	(cd ${TOOLSDIR}/; python3 setup.py install --install-scripts=${DESTDIR}/bin)
+	$(MAKE) DESTDIR=${DESTDIR} -C ${TOOLSDIR}/vspec2c install
+	install -d ${DESTDIR}/share/vss
+	(cd spec; cp -r * ${DESTDIR}/share/vss)
+
+# files hash-table stats:
+# Load=21/1024=2%, Rehash=0, Collisions=0/87=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 40 / storage = 333 B / avg = 8 B
+# current buf: size = 8162 B / used = 333 B / count = 40 / avg = 8 B
+
+# strcache performance: lookups = 103 / hit rate = 61%
+# hash-table stats:
+# Load=40/8192=0%, Rehash=0, Collisions=1/103=1%
+# Finished Make data base on Thu Jan  6 19:48:01 2022
+
+ 
