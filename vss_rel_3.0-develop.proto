@@ -1,0 +1,1663 @@
+syntax = "proto3";
+
+package vehicle;
+
+message Vehicle {
+  VehicleVersionVSS VersionVSS = 1;
+  VehicleVehicleIdentification VehicleIdentification = 2;
+  string LowVoltageSystemState = 3;
+  float Speed = 4;
+  float TravelledDistance = 5;
+  float TripMeterReading = 6;
+  float AmbientAirTemperature = 7;
+  bool IsMoving = 8;
+  float AverageSpeed = 9;
+  VehicleAcceleration Acceleration = 10;
+  VehicleAngularVelocity AngularVelocity = 11;
+  int32 RoofLoad = 12;
+  float cargoVolume = 13;
+  int32 emissionsCO2 = 14;
+  uint32 CurrentOverallWeight = 15;
+  uint32 CurbWeight = 16;
+  uint32 GrossWeight = 17;
+  uint32 MaxTowWeight = 18;
+  uint32 MaxTowBallWeight = 19;
+  uint32 Length = 20;
+  uint32 Height = 21;
+  uint32 Width = 22;
+  VehicleTrailer Trailer = 23;
+  VehicleCurrentLocation CurrentLocation = 24;
+  VehiclePrivate Private = 25;
+  VehiclePowertrain Powertrain = 26;
+  VehicleBody Body = 27;
+  VehicleCabin Cabin = 28;
+  VehicleADAS ADAS = 29;
+  VehicleChassis Chassis = 30;
+  VehicleOBD OBD = 31;
+  VehicleDriver Driver = 32;
+  VehicleService Service = 33;
+}
+
+message VehicleVersionVSS {
+  uint32 Major = 1;
+  uint32 Minor = 2;
+  uint32 Patch = 3;
+  string Label = 4;
+}
+
+message VehicleVehicleIdentification {
+  string VIN = 1;
+  string WMI = 2;
+  string Brand = 3;
+  string Model = 4;
+  uint32 Year = 5;
+  string ACRISSCode = 6;
+  string bodyType = 7;
+  string dateVehicleFirstRegistered = 8;
+  string meetsEmissionStandard = 9;
+  string productionDate = 10;
+  string purchaseDate = 11;
+  string vehicleModelDate = 12;
+  string vehicleConfiguration = 13;
+  uint32 vehicleSeatingCapacity = 14;
+  string vehicleSpecialUsage = 15;
+  string vehicleinteriorColor = 16;
+  string vehicleinteriorType = 17;
+  string knownVehicleDamages = 18;
+}
+
+message VehicleAcceleration {
+  float Longitudinal = 1;
+  float Lateral = 2;
+  float Vertical = 3;
+}
+
+message VehicleAngularVelocity {
+  int32 Roll = 1;
+  int32 Pitch = 2;
+  int32 Yaw = 3;
+}
+
+message VehicleTrailer {
+  bool Connected = 1;
+}
+
+message VehicleCurrentLocation {
+  string Timestamp = 1;
+  double Latitude = 2;
+  double Longitude = 3;
+  double Heading = 4;
+  double Accuracy = 5;
+  double Altitude = 6;
+}
+
+message VehiclePrivate {
+}
+
+message VehiclePowertrain {
+  float AccumulatedBrakingEnergy = 1;
+  uint32 Range = 2;
+  VehiclePowertrainCombustionEngine CombustionEngine = 3;
+  VehiclePowertrainTransmission Transmission = 4;
+  VehiclePowertrainElectricMotor ElectricMotor = 5;
+  VehiclePowertrainTractionBattery TractionBattery = 6;
+  VehiclePowertrainFuelSystem FuelSystem = 7;
+}
+
+message VehiclePowertrainCombustionEngine {
+  uint32 Displacement = 1;
+  float StrokeLength = 2;
+  float Bore = 3;
+  string Configuration = 4;
+  uint32 NumberOfCylinders = 5;
+  uint32 NumberOfValvesPerCylinder = 6;
+  string CompressionRatio = 7;
+  float EngineOilCapacity = 8;
+  float EngineCoolantCapacity = 9;
+  uint32 MaxPower = 10;
+  uint32 MaxTorque = 11;
+  string AspirationType = 12;
+  string FuelType = 13;
+  string EngineOilLevel = 14;
+  int32 OilLifeRemaining = 15;
+  bool IsRunning = 16;
+  uint32 Speed = 17;
+  float EngineHours = 18;
+  float IdleHours = 19;
+  int32 ECT = 20;
+  int32 EOT = 21;
+  uint32 MAP = 22;
+  uint32 MAF = 23;
+  uint32 TPS = 24;
+  uint32 EOP = 25;
+  uint32 Power = 26;
+  uint32 Torque = 27;
+  VehiclePowertrainCombustionEngineDieselExhaustFluid DieselExhaustFluid = 28;
+  VehiclePowertrainCombustionEngineDieselParticulateFilter DieselParticulateFilter = 29;
+}
+
+message VehiclePowertrainCombustionEngineDieselExhaustFluid {
+  float Capacity = 1;
+  uint32 Level = 2;
+  uint32 Range = 3;
+  bool IsLevelLow = 4;
+}
+
+message VehiclePowertrainCombustionEngineDieselParticulateFilter {
+  float InletTemperature = 1;
+  float OutletTemperature = 2;
+  float DeltaPressure = 3;
+}
+
+message VehiclePowertrainTransmission {
+  string Type = 1;
+  uint32 GearCount = 2;
+  string DriveType = 3;
+  float TravelledDistance = 4;
+  int32 CurrentGear = 5;
+  int32 SelectedGear = 6;
+  string PerformanceMode = 7;
+  string GearChangeMode = 8;
+  int32 Temperature = 9;
+  uint32 ClutchWear = 10;
+}
+
+message VehiclePowertrainElectricMotor {
+  uint32 MaxPower = 1;
+  uint32 MaxTorque = 2;
+  uint32 MaxRegenPower = 3;
+  uint32 MaxRegenTorque = 4;
+  int32 Rpm = 5;
+  int32 Temperature = 6;
+  int32 CoolantTemperature = 7;
+  int32 Power = 8;
+  int32 Torque = 9;
+}
+
+message VehiclePowertrainTractionBattery {
+  bool IsPowerConnected = 1;
+  bool IsGroundConnected = 2;
+  float Temperature = 3;
+  VehiclePowertrainTractionBatteryStateOfCharge StateOfCharge = 4;
+  uint32 GrossCapacity = 5;
+  uint32 NetCapacity = 6;
+  uint32 NominalVoltage = 7;
+  uint32 ReferentVoltage = 8;
+  float AccumulatedChargedEnergy = 9;
+  float AccumulatedConsumedEnergy = 10;
+  uint32 Range = 11;
+  VehiclePowertrainTractionBatteryCharging Charging = 12;
+}
+
+message VehiclePowertrainTractionBatteryStateOfCharge {
+  float Current = 1;
+  float Displayed = 2;
+  uint32 Target = 3;
+}
+
+message VehiclePowertrainTractionBatteryCharging {
+  uint32 ChargeLimit = 1;
+  float MaximumChargingCurrent = 2;
+  string ChargePortFlap = 3;
+  bool IsChargingCableConnected = 4;
+  string ChargePlugType = 5;
+  string Mode = 6;
+  bool IsCharging = 7;
+  string StartStopCharging = 8;
+  float ChargeCurrent = 9;
+  float ChargeVoltage = 10;
+  float ChargeRate = 11;
+  uint32 TimeToComplete = 12;
+  VehiclePowertrainTractionBatteryChargingTimer Timer = 13;
+}
+
+message VehiclePowertrainTractionBatteryChargingTimer {
+  string Mode = 1;
+  string Time = 2;
+}
+
+message VehiclePowertrainFuelSystem {
+  string FuelType = 1;
+  string HybridType = 2;
+  float TankCapacity = 3;
+  uint32 Level = 4;
+  uint32 Range = 5;
+  float InstantConsumption = 6;
+  float AverageConsumption = 7;
+  float ConsumptionSinceStart = 8;
+  uint32 TimeSinceStart = 9;
+  bool EngineStopStartEnabled = 10;
+  bool LowFuelLevel = 11;
+}
+
+message VehicleBody {
+  string BodyType = 1;
+  string RefuelPosition = 2;
+  VehicleBodyHood Hood = 3;
+  VehicleBodyTrunk Trunk = 4;
+  VehicleBodyHorn Horn = 5;
+  VehicleBodyRaindetection Raindetection = 6;
+  VehicleBodyWindshield Windshield = 7;
+  VehicleBodyLights Lights = 8;
+  VehicleBodyMirrors Mirrors = 9;
+  VehicleBodyChargingPort ChargingPort = 10;
+}
+
+message VehicleBodyHood {
+  bool IsOpen = 1;
+}
+
+message VehicleBodyTrunk {
+  bool IsOpen = 1;
+  bool IsLocked = 2;
+}
+
+message VehicleBodyHorn {
+  bool IsActive = 1;
+}
+
+message VehicleBodyRaindetection {
+  uint32 intensity = 1;
+}
+
+message VehicleBodyWindshield {
+  VehicleBodyWindshieldFront Front = 1;
+  VehicleBodyWindshieldRear Rear = 2;
+}
+
+message VehicleBodyWindshieldFront {
+  VehicleBodyWindshieldFrontWiping Wiping = 1;
+  VehicleBodyWindshieldFrontHeating Heating = 2;
+  VehicleBodyWindshieldFrontWasherFluid WasherFluid = 3;
+}
+
+message VehicleBodyWindshieldFrontWiping {
+  string Status = 1;
+}
+
+message VehicleBodyWindshieldFrontHeating {
+  bool Status = 1;
+}
+
+message VehicleBodyWindshieldFrontWasherFluid {
+  bool LevelLow = 1;
+  uint32 Level = 2;
+}
+
+message VehicleBodyWindshieldRear {
+  VehicleBodyWindshieldRearWiping Wiping = 1;
+  VehicleBodyWindshieldRearHeating Heating = 2;
+  VehicleBodyWindshieldRearWasherFluid WasherFluid = 3;
+}
+
+message VehicleBodyWindshieldRearWiping {
+  string Status = 1;
+}
+
+message VehicleBodyWindshieldRearHeating {
+  bool Status = 1;
+}
+
+message VehicleBodyWindshieldRearWasherFluid {
+  bool LevelLow = 1;
+  uint32 Level = 2;
+}
+
+message VehicleBodyLights {
+  bool IsHighBeamOn = 1;
+  bool IsLowBeamOn = 2;
+  bool IsRunningOn = 3;
+  bool IsBackupOn = 4;
+  bool IsParkingOn = 5;
+  bool IsBrakeOn = 6;
+  bool IsRearFogOn = 7;
+  bool IsFrontFogOn = 8;
+  bool IsHazardOn = 9;
+  bool IsLeftIndicatorOn = 10;
+  bool IsRightIndicatorOn = 11;
+}
+
+message VehicleBodyMirrors {
+  VehicleBodyMirrorsLeft Left = 1;
+  VehicleBodyMirrorsRight Right = 2;
+}
+
+message VehicleBodyMirrorsLeft {
+  int32 Tilt = 1;
+  int32 Pan = 2;
+  VehicleBodyMirrorsLeftHeating Heating = 3;
+}
+
+message VehicleBodyMirrorsLeftHeating {
+  bool Status = 1;
+}
+
+message VehicleBodyMirrorsRight {
+  int32 Tilt = 1;
+  int32 Pan = 2;
+  VehicleBodyMirrorsRightHeating Heating = 3;
+}
+
+message VehicleBodyMirrorsRightHeating {
+  bool Status = 1;
+}
+
+message VehicleBodyChargingPort {
+  string Type = 1;
+}
+
+message VehicleCabin {
+  VehicleCabinRearShade RearShade = 1;
+  VehicleCabinHVAC HVAC = 2;
+  VehicleCabinInfotainment Infotainment = 3;
+  VehicleCabinSunroof Sunroof = 4;
+  VehicleCabinRearviewMirror RearviewMirror = 5;
+  VehicleCabinLights Lights = 6;
+  VehicleCabinDoor Door = 7;
+  uint32 DoorCount = 8;
+  VehicleCabinSeat Seat = 9;
+  uint32 DriverPosition = 10;
+  uint32 SeatRowCount = 11;
+  repeated uint32 SeatPosCount = 12;
+  VehicleCabinConvertible Convertible = 13;
+}
+
+message VehicleCabinRearShade {
+  string Switch = 1;
+  uint32 Position = 2;
+}
+
+message VehicleCabinHVAC {
+  VehicleCabinHVACStation Station = 1;
+  bool IsRecirculationActive = 2;
+  bool IsFrontDefrosterActive = 3;
+  bool IsRearDefrosterActive = 4;
+  bool IsAirConditioningActive = 5;
+  float AmbientAirTemperature = 6;
+}
+
+message VehicleCabinHVACStation {
+  VehicleCabinHVACStationRow1 Row1 = 1;
+  VehicleCabinHVACStationRow2 Row2 = 2;
+  VehicleCabinHVACStationRow3 Row3 = 3;
+  VehicleCabinHVACStationRow4 Row4 = 4;
+}
+
+message VehicleCabinHVACStationRow1 {
+  VehicleCabinHVACStationRow1Left Left = 1;
+  VehicleCabinHVACStationRow1Right Right = 2;
+}
+
+message VehicleCabinHVACStationRow1Left {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinHVACStationRow1Right {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinHVACStationRow2 {
+  VehicleCabinHVACStationRow2Left Left = 1;
+  VehicleCabinHVACStationRow2Right Right = 2;
+}
+
+message VehicleCabinHVACStationRow2Left {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinHVACStationRow2Right {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinHVACStationRow3 {
+  VehicleCabinHVACStationRow3Left Left = 1;
+  VehicleCabinHVACStationRow3Right Right = 2;
+}
+
+message VehicleCabinHVACStationRow3Left {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinHVACStationRow3Right {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinHVACStationRow4 {
+  VehicleCabinHVACStationRow4Left Left = 1;
+  VehicleCabinHVACStationRow4Right Right = 2;
+}
+
+message VehicleCabinHVACStationRow4Left {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinHVACStationRow4Right {
+  uint32 FanSpeed = 1;
+  int32 Temperature = 2;
+  string AirDistribution = 3;
+}
+
+message VehicleCabinInfotainment {
+  VehicleCabinInfotainmentMedia Media = 1;
+  VehicleCabinInfotainmentNavigation Navigation = 2;
+  VehicleCabinInfotainmentHMI HMI = 3;
+}
+
+message VehicleCabinInfotainmentMedia {
+  string Action = 1;
+  VehicleCabinInfotainmentMediaPlayed Played = 2;
+  string DeclinedURI = 3;
+  string SelectedURI = 4;
+  uint32 Volume = 5;
+}
+
+message VehicleCabinInfotainmentMediaPlayed {
+  string Source = 1;
+  string Artist = 2;
+  string Album = 3;
+  string Track = 4;
+  string URI = 5;
+}
+
+message VehicleCabinInfotainmentNavigation {
+  VehicleCabinInfotainmentNavigationDestinationSet DestinationSet = 1;
+}
+
+message VehicleCabinInfotainmentNavigationDestinationSet {
+  double Latitude = 1;
+  double Longitude = 2;
+}
+
+message VehicleCabinInfotainmentHMI {
+  string CurrentLanguage = 1;
+  string DateFormat = 2;
+  string TimeFormat = 3;
+  string DistanceUnit = 4;
+  string FuelEconomyUnits = 5;
+  string EVEconomyUnits = 6;
+  string TemperatureUnit = 7;
+  string DayNightMode = 8;
+}
+
+message VehicleCabinSunroof {
+  int32 Position = 1;
+  string Switch = 2;
+  VehicleCabinSunroofShade Shade = 3;
+}
+
+message VehicleCabinSunroofShade {
+  string Switch = 1;
+  uint32 Position = 2;
+}
+
+message VehicleCabinRearviewMirror {
+  uint32 DimmingLevel = 1;
+}
+
+message VehicleCabinLights {
+  bool IsGloveBoxOn = 1;
+  bool IsTrunkOn = 2;
+  bool IsDomeOn = 3;
+  uint32 AmbientLight = 4;
+  uint32 LightIntensity = 5;
+  VehicleCabinLightsSpotlight Spotlight = 6;
+}
+
+message VehicleCabinLightsSpotlight {
+  VehicleCabinLightsSpotlightRow1 Row1 = 1;
+  VehicleCabinLightsSpotlightRow2 Row2 = 2;
+  VehicleCabinLightsSpotlightRow3 Row3 = 3;
+  VehicleCabinLightsSpotlightRow4 Row4 = 4;
+}
+
+message VehicleCabinLightsSpotlightRow1 {
+  bool IsSharedOn = 1;
+  bool IsLeftOn = 2;
+  bool IsRightOn = 3;
+}
+
+message VehicleCabinLightsSpotlightRow2 {
+  bool IsSharedOn = 1;
+  bool IsLeftOn = 2;
+  bool IsRightOn = 3;
+}
+
+message VehicleCabinLightsSpotlightRow3 {
+  bool IsSharedOn = 1;
+  bool IsLeftOn = 2;
+  bool IsRightOn = 3;
+}
+
+message VehicleCabinLightsSpotlightRow4 {
+  bool IsSharedOn = 1;
+  bool IsLeftOn = 2;
+  bool IsRightOn = 3;
+}
+
+message VehicleCabinDoor {
+  VehicleCabinDoorRow1 Row1 = 1;
+  VehicleCabinDoorRow2 Row2 = 2;
+}
+
+message VehicleCabinDoorRow1 {
+  VehicleCabinDoorRow1Left Left = 1;
+  VehicleCabinDoorRow1Right Right = 2;
+}
+
+message VehicleCabinDoorRow1Left {
+  bool IsOpen = 1;
+  bool IsLocked = 2;
+  VehicleCabinDoorRow1LeftWindow Window = 3;
+  bool IsChildLockActive = 4;
+  VehicleCabinDoorRow1LeftShade Shade = 5;
+}
+
+message VehicleCabinDoorRow1LeftWindow {
+  bool isOpen = 1;
+  uint32 Position = 2;
+  bool ChildLock = 3;
+  string Switch = 4;
+}
+
+message VehicleCabinDoorRow1LeftShade {
+  string Switch = 1;
+  uint32 Position = 2;
+}
+
+message VehicleCabinDoorRow1Right {
+  bool IsOpen = 1;
+  bool IsLocked = 2;
+  VehicleCabinDoorRow1RightWindow Window = 3;
+  bool IsChildLockActive = 4;
+  VehicleCabinDoorRow1RightShade Shade = 5;
+}
+
+message VehicleCabinDoorRow1RightWindow {
+  bool isOpen = 1;
+  uint32 Position = 2;
+  bool ChildLock = 3;
+  string Switch = 4;
+}
+
+message VehicleCabinDoorRow1RightShade {
+  string Switch = 1;
+  uint32 Position = 2;
+}
+
+message VehicleCabinDoorRow2 {
+  VehicleCabinDoorRow2Left Left = 1;
+  VehicleCabinDoorRow2Right Right = 2;
+}
+
+message VehicleCabinDoorRow2Left {
+  bool IsOpen = 1;
+  bool IsLocked = 2;
+  VehicleCabinDoorRow2LeftWindow Window = 3;
+  bool IsChildLockActive = 4;
+  VehicleCabinDoorRow2LeftShade Shade = 5;
+}
+
+message VehicleCabinDoorRow2LeftWindow {
+  bool isOpen = 1;
+  uint32 Position = 2;
+  bool ChildLock = 3;
+  string Switch = 4;
+}
+
+message VehicleCabinDoorRow2LeftShade {
+  string Switch = 1;
+  uint32 Position = 2;
+}
+
+message VehicleCabinDoorRow2Right {
+  bool IsOpen = 1;
+  bool IsLocked = 2;
+  VehicleCabinDoorRow2RightWindow Window = 3;
+  bool IsChildLockActive = 4;
+  VehicleCabinDoorRow2RightShade Shade = 5;
+}
+
+message VehicleCabinDoorRow2RightWindow {
+  bool isOpen = 1;
+  uint32 Position = 2;
+  bool ChildLock = 3;
+  string Switch = 4;
+}
+
+message VehicleCabinDoorRow2RightShade {
+  string Switch = 1;
+  uint32 Position = 2;
+}
+
+message VehicleCabinSeat {
+  VehicleCabinSeatRow1 Row1 = 1;
+  VehicleCabinSeatRow2 Row2 = 2;
+}
+
+message VehicleCabinSeatRow1 {
+  VehicleCabinSeatRow1Pos1 Pos1 = 1;
+  VehicleCabinSeatRow1Pos2 Pos2 = 2;
+  VehicleCabinSeatRow1Pos3 Pos3 = 3;
+}
+
+message VehicleCabinSeatRow1Pos1 {
+  bool HasPassenger = 1;
+  VehicleCabinSeatRow1Pos1Occupant Occupant = 2;
+  bool IsBelted = 3;
+  int32 Heating = 4;
+  uint32 Massage = 5;
+  int32 Recline = 6;
+  uint32 Position = 7;
+  uint32 Height = 8;
+  VehicleCabinSeatRow1Pos1Cushion Cushion = 9;
+  VehicleCabinSeatRow1Pos1Lumbar Lumbar = 10;
+  VehicleCabinSeatRow1Pos1SideBolster SideBolster = 11;
+  VehicleCabinSeatRow1Pos1HeadRestraint HeadRestraint = 12;
+  VehicleCabinSeatRow1Pos1Airbag Airbag = 13;
+  VehicleCabinSeatRow1Pos1Switch Switch = 14;
+}
+
+message VehicleCabinSeatRow1Pos1Occupant {
+  VehicleCabinSeatRow1Pos1OccupantIdentifier Identifier = 1;
+}
+
+message VehicleCabinSeatRow1Pos1OccupantIdentifier {
+  string Subject = 1;
+  string Issuer = 2;
+}
+
+message VehicleCabinSeatRow1Pos1Cushion {
+  uint32 Height = 1;
+  uint32 Length = 2;
+}
+
+message VehicleCabinSeatRow1Pos1Lumbar {
+  uint32 Inflation = 1;
+  uint32 Height = 2;
+}
+
+message VehicleCabinSeatRow1Pos1SideBolster {
+  uint32 Inflation = 1;
+}
+
+message VehicleCabinSeatRow1Pos1HeadRestraint {
+  uint32 Height = 1;
+}
+
+message VehicleCabinSeatRow1Pos1Airbag {
+  bool IsDeployed = 1;
+}
+
+message VehicleCabinSeatRow1Pos1Switch {
+  bool Warmer = 1;
+  bool Cooler = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+  bool Up = 5;
+  bool Down = 6;
+  VehicleCabinSeatRow1Pos1SwitchHeadRestraint HeadRestraint = 7;
+  VehicleCabinSeatRow1Pos1SwitchMassage Massage = 8;
+  VehicleCabinSeatRow1Pos1SwitchRecline Recline = 9;
+  VehicleCabinSeatRow1Pos1SwitchCushion Cushion = 10;
+  VehicleCabinSeatRow1Pos1SwitchLumbar Lumbar = 11;
+  VehicleCabinSeatRow1Pos1SwitchSideBolster SideBolster = 12;
+}
+
+message VehicleCabinSeatRow1Pos1SwitchHeadRestraint {
+  bool Up = 1;
+  bool Down = 2;
+}
+
+message VehicleCabinSeatRow1Pos1SwitchMassage {
+  bool Increase = 1;
+  bool Decrease = 2;
+}
+
+message VehicleCabinSeatRow1Pos1SwitchRecline {
+  bool Backward = 1;
+  bool Forward = 2;
+}
+
+message VehicleCabinSeatRow1Pos1SwitchCushion {
+  bool Up = 1;
+  bool Down = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+}
+
+message VehicleCabinSeatRow1Pos1SwitchLumbar {
+  bool Up = 1;
+  bool Down = 2;
+  bool Inflate = 3;
+  bool Deflate = 4;
+}
+
+message VehicleCabinSeatRow1Pos1SwitchSideBolster {
+  bool Inflate = 1;
+  bool Deflate = 2;
+}
+
+message VehicleCabinSeatRow1Pos2 {
+  bool HasPassenger = 1;
+  VehicleCabinSeatRow1Pos2Occupant Occupant = 2;
+  bool IsBelted = 3;
+  int32 Heating = 4;
+  uint32 Massage = 5;
+  int32 Recline = 6;
+  uint32 Position = 7;
+  uint32 Height = 8;
+  VehicleCabinSeatRow1Pos2Cushion Cushion = 9;
+  VehicleCabinSeatRow1Pos2Lumbar Lumbar = 10;
+  VehicleCabinSeatRow1Pos2SideBolster SideBolster = 11;
+  VehicleCabinSeatRow1Pos2HeadRestraint HeadRestraint = 12;
+  VehicleCabinSeatRow1Pos2Airbag Airbag = 13;
+  VehicleCabinSeatRow1Pos2Switch Switch = 14;
+}
+
+message VehicleCabinSeatRow1Pos2Occupant {
+  VehicleCabinSeatRow1Pos2OccupantIdentifier Identifier = 1;
+}
+
+message VehicleCabinSeatRow1Pos2OccupantIdentifier {
+  string Subject = 1;
+  string Issuer = 2;
+}
+
+message VehicleCabinSeatRow1Pos2Cushion {
+  uint32 Height = 1;
+  uint32 Length = 2;
+}
+
+message VehicleCabinSeatRow1Pos2Lumbar {
+  uint32 Inflation = 1;
+  uint32 Height = 2;
+}
+
+message VehicleCabinSeatRow1Pos2SideBolster {
+  uint32 Inflation = 1;
+}
+
+message VehicleCabinSeatRow1Pos2HeadRestraint {
+  uint32 Height = 1;
+}
+
+message VehicleCabinSeatRow1Pos2Airbag {
+  bool IsDeployed = 1;
+}
+
+message VehicleCabinSeatRow1Pos2Switch {
+  bool Warmer = 1;
+  bool Cooler = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+  bool Up = 5;
+  bool Down = 6;
+  VehicleCabinSeatRow1Pos2SwitchHeadRestraint HeadRestraint = 7;
+  VehicleCabinSeatRow1Pos2SwitchMassage Massage = 8;
+  VehicleCabinSeatRow1Pos2SwitchRecline Recline = 9;
+  VehicleCabinSeatRow1Pos2SwitchCushion Cushion = 10;
+  VehicleCabinSeatRow1Pos2SwitchLumbar Lumbar = 11;
+  VehicleCabinSeatRow1Pos2SwitchSideBolster SideBolster = 12;
+}
+
+message VehicleCabinSeatRow1Pos2SwitchHeadRestraint {
+  bool Up = 1;
+  bool Down = 2;
+}
+
+message VehicleCabinSeatRow1Pos2SwitchMassage {
+  bool Increase = 1;
+  bool Decrease = 2;
+}
+
+message VehicleCabinSeatRow1Pos2SwitchRecline {
+  bool Backward = 1;
+  bool Forward = 2;
+}
+
+message VehicleCabinSeatRow1Pos2SwitchCushion {
+  bool Up = 1;
+  bool Down = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+}
+
+message VehicleCabinSeatRow1Pos2SwitchLumbar {
+  bool Up = 1;
+  bool Down = 2;
+  bool Inflate = 3;
+  bool Deflate = 4;
+}
+
+message VehicleCabinSeatRow1Pos2SwitchSideBolster {
+  bool Inflate = 1;
+  bool Deflate = 2;
+}
+
+message VehicleCabinSeatRow1Pos3 {
+  bool HasPassenger = 1;
+  VehicleCabinSeatRow1Pos3Occupant Occupant = 2;
+  bool IsBelted = 3;
+  int32 Heating = 4;
+  uint32 Massage = 5;
+  int32 Recline = 6;
+  uint32 Position = 7;
+  uint32 Height = 8;
+  VehicleCabinSeatRow1Pos3Cushion Cushion = 9;
+  VehicleCabinSeatRow1Pos3Lumbar Lumbar = 10;
+  VehicleCabinSeatRow1Pos3SideBolster SideBolster = 11;
+  VehicleCabinSeatRow1Pos3HeadRestraint HeadRestraint = 12;
+  VehicleCabinSeatRow1Pos3Airbag Airbag = 13;
+  VehicleCabinSeatRow1Pos3Switch Switch = 14;
+}
+
+message VehicleCabinSeatRow1Pos3Occupant {
+  VehicleCabinSeatRow1Pos3OccupantIdentifier Identifier = 1;
+}
+
+message VehicleCabinSeatRow1Pos3OccupantIdentifier {
+  string Subject = 1;
+  string Issuer = 2;
+}
+
+message VehicleCabinSeatRow1Pos3Cushion {
+  uint32 Height = 1;
+  uint32 Length = 2;
+}
+
+message VehicleCabinSeatRow1Pos3Lumbar {
+  uint32 Inflation = 1;
+  uint32 Height = 2;
+}
+
+message VehicleCabinSeatRow1Pos3SideBolster {
+  uint32 Inflation = 1;
+}
+
+message VehicleCabinSeatRow1Pos3HeadRestraint {
+  uint32 Height = 1;
+}
+
+message VehicleCabinSeatRow1Pos3Airbag {
+  bool IsDeployed = 1;
+}
+
+message VehicleCabinSeatRow1Pos3Switch {
+  bool Warmer = 1;
+  bool Cooler = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+  bool Up = 5;
+  bool Down = 6;
+  VehicleCabinSeatRow1Pos3SwitchHeadRestraint HeadRestraint = 7;
+  VehicleCabinSeatRow1Pos3SwitchMassage Massage = 8;
+  VehicleCabinSeatRow1Pos3SwitchRecline Recline = 9;
+  VehicleCabinSeatRow1Pos3SwitchCushion Cushion = 10;
+  VehicleCabinSeatRow1Pos3SwitchLumbar Lumbar = 11;
+  VehicleCabinSeatRow1Pos3SwitchSideBolster SideBolster = 12;
+}
+
+message VehicleCabinSeatRow1Pos3SwitchHeadRestraint {
+  bool Up = 1;
+  bool Down = 2;
+}
+
+message VehicleCabinSeatRow1Pos3SwitchMassage {
+  bool Increase = 1;
+  bool Decrease = 2;
+}
+
+message VehicleCabinSeatRow1Pos3SwitchRecline {
+  bool Backward = 1;
+  bool Forward = 2;
+}
+
+message VehicleCabinSeatRow1Pos3SwitchCushion {
+  bool Up = 1;
+  bool Down = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+}
+
+message VehicleCabinSeatRow1Pos3SwitchLumbar {
+  bool Up = 1;
+  bool Down = 2;
+  bool Inflate = 3;
+  bool Deflate = 4;
+}
+
+message VehicleCabinSeatRow1Pos3SwitchSideBolster {
+  bool Inflate = 1;
+  bool Deflate = 2;
+}
+
+message VehicleCabinSeatRow2 {
+  VehicleCabinSeatRow2Pos1 Pos1 = 1;
+  VehicleCabinSeatRow2Pos2 Pos2 = 2;
+  VehicleCabinSeatRow2Pos3 Pos3 = 3;
+}
+
+message VehicleCabinSeatRow2Pos1 {
+  bool HasPassenger = 1;
+  VehicleCabinSeatRow2Pos1Occupant Occupant = 2;
+  bool IsBelted = 3;
+  int32 Heating = 4;
+  uint32 Massage = 5;
+  int32 Recline = 6;
+  uint32 Position = 7;
+  uint32 Height = 8;
+  VehicleCabinSeatRow2Pos1Cushion Cushion = 9;
+  VehicleCabinSeatRow2Pos1Lumbar Lumbar = 10;
+  VehicleCabinSeatRow2Pos1SideBolster SideBolster = 11;
+  VehicleCabinSeatRow2Pos1HeadRestraint HeadRestraint = 12;
+  VehicleCabinSeatRow2Pos1Airbag Airbag = 13;
+  VehicleCabinSeatRow2Pos1Switch Switch = 14;
+}
+
+message VehicleCabinSeatRow2Pos1Occupant {
+  VehicleCabinSeatRow2Pos1OccupantIdentifier Identifier = 1;
+}
+
+message VehicleCabinSeatRow2Pos1OccupantIdentifier {
+  string Subject = 1;
+  string Issuer = 2;
+}
+
+message VehicleCabinSeatRow2Pos1Cushion {
+  uint32 Height = 1;
+  uint32 Length = 2;
+}
+
+message VehicleCabinSeatRow2Pos1Lumbar {
+  uint32 Inflation = 1;
+  uint32 Height = 2;
+}
+
+message VehicleCabinSeatRow2Pos1SideBolster {
+  uint32 Inflation = 1;
+}
+
+message VehicleCabinSeatRow2Pos1HeadRestraint {
+  uint32 Height = 1;
+}
+
+message VehicleCabinSeatRow2Pos1Airbag {
+  bool IsDeployed = 1;
+}
+
+message VehicleCabinSeatRow2Pos1Switch {
+  bool Warmer = 1;
+  bool Cooler = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+  bool Up = 5;
+  bool Down = 6;
+  VehicleCabinSeatRow2Pos1SwitchHeadRestraint HeadRestraint = 7;
+  VehicleCabinSeatRow2Pos1SwitchMassage Massage = 8;
+  VehicleCabinSeatRow2Pos1SwitchRecline Recline = 9;
+  VehicleCabinSeatRow2Pos1SwitchCushion Cushion = 10;
+  VehicleCabinSeatRow2Pos1SwitchLumbar Lumbar = 11;
+  VehicleCabinSeatRow2Pos1SwitchSideBolster SideBolster = 12;
+}
+
+message VehicleCabinSeatRow2Pos1SwitchHeadRestraint {
+  bool Up = 1;
+  bool Down = 2;
+}
+
+message VehicleCabinSeatRow2Pos1SwitchMassage {
+  bool Increase = 1;
+  bool Decrease = 2;
+}
+
+message VehicleCabinSeatRow2Pos1SwitchRecline {
+  bool Backward = 1;
+  bool Forward = 2;
+}
+
+message VehicleCabinSeatRow2Pos1SwitchCushion {
+  bool Up = 1;
+  bool Down = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+}
+
+message VehicleCabinSeatRow2Pos1SwitchLumbar {
+  bool Up = 1;
+  bool Down = 2;
+  bool Inflate = 3;
+  bool Deflate = 4;
+}
+
+message VehicleCabinSeatRow2Pos1SwitchSideBolster {
+  bool Inflate = 1;
+  bool Deflate = 2;
+}
+
+message VehicleCabinSeatRow2Pos2 {
+  bool HasPassenger = 1;
+  VehicleCabinSeatRow2Pos2Occupant Occupant = 2;
+  bool IsBelted = 3;
+  int32 Heating = 4;
+  uint32 Massage = 5;
+  int32 Recline = 6;
+  uint32 Position = 7;
+  uint32 Height = 8;
+  VehicleCabinSeatRow2Pos2Cushion Cushion = 9;
+  VehicleCabinSeatRow2Pos2Lumbar Lumbar = 10;
+  VehicleCabinSeatRow2Pos2SideBolster SideBolster = 11;
+  VehicleCabinSeatRow2Pos2HeadRestraint HeadRestraint = 12;
+  VehicleCabinSeatRow2Pos2Airbag Airbag = 13;
+  VehicleCabinSeatRow2Pos2Switch Switch = 14;
+}
+
+message VehicleCabinSeatRow2Pos2Occupant {
+  VehicleCabinSeatRow2Pos2OccupantIdentifier Identifier = 1;
+}
+
+message VehicleCabinSeatRow2Pos2OccupantIdentifier {
+  string Subject = 1;
+  string Issuer = 2;
+}
+
+message VehicleCabinSeatRow2Pos2Cushion {
+  uint32 Height = 1;
+  uint32 Length = 2;
+}
+
+message VehicleCabinSeatRow2Pos2Lumbar {
+  uint32 Inflation = 1;
+  uint32 Height = 2;
+}
+
+message VehicleCabinSeatRow2Pos2SideBolster {
+  uint32 Inflation = 1;
+}
+
+message VehicleCabinSeatRow2Pos2HeadRestraint {
+  uint32 Height = 1;
+}
+
+message VehicleCabinSeatRow2Pos2Airbag {
+  bool IsDeployed = 1;
+}
+
+message VehicleCabinSeatRow2Pos2Switch {
+  bool Warmer = 1;
+  bool Cooler = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+  bool Up = 5;
+  bool Down = 6;
+  VehicleCabinSeatRow2Pos2SwitchHeadRestraint HeadRestraint = 7;
+  VehicleCabinSeatRow2Pos2SwitchMassage Massage = 8;
+  VehicleCabinSeatRow2Pos2SwitchRecline Recline = 9;
+  VehicleCabinSeatRow2Pos2SwitchCushion Cushion = 10;
+  VehicleCabinSeatRow2Pos2SwitchLumbar Lumbar = 11;
+  VehicleCabinSeatRow2Pos2SwitchSideBolster SideBolster = 12;
+}
+
+message VehicleCabinSeatRow2Pos2SwitchHeadRestraint {
+  bool Up = 1;
+  bool Down = 2;
+}
+
+message VehicleCabinSeatRow2Pos2SwitchMassage {
+  bool Increase = 1;
+  bool Decrease = 2;
+}
+
+message VehicleCabinSeatRow2Pos2SwitchRecline {
+  bool Backward = 1;
+  bool Forward = 2;
+}
+
+message VehicleCabinSeatRow2Pos2SwitchCushion {
+  bool Up = 1;
+  bool Down = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+}
+
+message VehicleCabinSeatRow2Pos2SwitchLumbar {
+  bool Up = 1;
+  bool Down = 2;
+  bool Inflate = 3;
+  bool Deflate = 4;
+}
+
+message VehicleCabinSeatRow2Pos2SwitchSideBolster {
+  bool Inflate = 1;
+  bool Deflate = 2;
+}
+
+message VehicleCabinSeatRow2Pos3 {
+  bool HasPassenger = 1;
+  VehicleCabinSeatRow2Pos3Occupant Occupant = 2;
+  bool IsBelted = 3;
+  int32 Heating = 4;
+  uint32 Massage = 5;
+  int32 Recline = 6;
+  uint32 Position = 7;
+  uint32 Height = 8;
+  VehicleCabinSeatRow2Pos3Cushion Cushion = 9;
+  VehicleCabinSeatRow2Pos3Lumbar Lumbar = 10;
+  VehicleCabinSeatRow2Pos3SideBolster SideBolster = 11;
+  VehicleCabinSeatRow2Pos3HeadRestraint HeadRestraint = 12;
+  VehicleCabinSeatRow2Pos3Airbag Airbag = 13;
+  VehicleCabinSeatRow2Pos3Switch Switch = 14;
+}
+
+message VehicleCabinSeatRow2Pos3Occupant {
+  VehicleCabinSeatRow2Pos3OccupantIdentifier Identifier = 1;
+}
+
+message VehicleCabinSeatRow2Pos3OccupantIdentifier {
+  string Subject = 1;
+  string Issuer = 2;
+}
+
+message VehicleCabinSeatRow2Pos3Cushion {
+  uint32 Height = 1;
+  uint32 Length = 2;
+}
+
+message VehicleCabinSeatRow2Pos3Lumbar {
+  uint32 Inflation = 1;
+  uint32 Height = 2;
+}
+
+message VehicleCabinSeatRow2Pos3SideBolster {
+  uint32 Inflation = 1;
+}
+
+message VehicleCabinSeatRow2Pos3HeadRestraint {
+  uint32 Height = 1;
+}
+
+message VehicleCabinSeatRow2Pos3Airbag {
+  bool IsDeployed = 1;
+}
+
+message VehicleCabinSeatRow2Pos3Switch {
+  bool Warmer = 1;
+  bool Cooler = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+  bool Up = 5;
+  bool Down = 6;
+  VehicleCabinSeatRow2Pos3SwitchHeadRestraint HeadRestraint = 7;
+  VehicleCabinSeatRow2Pos3SwitchMassage Massage = 8;
+  VehicleCabinSeatRow2Pos3SwitchRecline Recline = 9;
+  VehicleCabinSeatRow2Pos3SwitchCushion Cushion = 10;
+  VehicleCabinSeatRow2Pos3SwitchLumbar Lumbar = 11;
+  VehicleCabinSeatRow2Pos3SwitchSideBolster SideBolster = 12;
+}
+
+message VehicleCabinSeatRow2Pos3SwitchHeadRestraint {
+  bool Up = 1;
+  bool Down = 2;
+}
+
+message VehicleCabinSeatRow2Pos3SwitchMassage {
+  bool Increase = 1;
+  bool Decrease = 2;
+}
+
+message VehicleCabinSeatRow2Pos3SwitchRecline {
+  bool Backward = 1;
+  bool Forward = 2;
+}
+
+message VehicleCabinSeatRow2Pos3SwitchCushion {
+  bool Up = 1;
+  bool Down = 2;
+  bool Forward = 3;
+  bool Backward = 4;
+}
+
+message VehicleCabinSeatRow2Pos3SwitchLumbar {
+  bool Up = 1;
+  bool Down = 2;
+  bool Inflate = 3;
+  bool Deflate = 4;
+}
+
+message VehicleCabinSeatRow2Pos3SwitchSideBolster {
+  bool Inflate = 1;
+  bool Deflate = 2;
+}
+
+message VehicleCabinConvertible {
+  string Status = 1;
+}
+
+message VehicleADAS {
+  VehicleADASCruiseControl CruiseControl = 1;
+  VehicleADASLaneDepartureDetection LaneDepartureDetection = 2;
+  VehicleADASObstacleDetection ObstacleDetection = 3;
+  VehicleADASABS ABS = 4;
+  VehicleADASTCS TCS = 5;
+  VehicleADASESC ESC = 6;
+}
+
+message VehicleADASCruiseControl {
+  bool IsActive = 1;
+  float SpeedSet = 2;
+  bool Error = 3;
+}
+
+message VehicleADASLaneDepartureDetection {
+  bool IsActive = 1;
+  bool Warning = 2;
+  bool Error = 3;
+}
+
+message VehicleADASObstacleDetection {
+  bool IsActive = 1;
+  bool Error = 2;
+}
+
+message VehicleADASABS {
+  bool IsActive = 1;
+  bool Error = 2;
+  bool IsEngaged = 3;
+}
+
+message VehicleADASTCS {
+  bool IsActive = 1;
+  bool Error = 2;
+  bool IsEngaged = 3;
+}
+
+message VehicleADASESC {
+  bool IsActive = 1;
+  bool Error = 2;
+  bool IsEngaged = 3;
+}
+
+message VehicleChassis {
+  uint32 Wheelbase = 1;
+  uint32 Track = 2;
+  VehicleChassisAxle Axle = 3;
+  uint32 AxleCount = 4;
+  VehicleChassisParkingBrake ParkingBrake = 5;
+  VehicleChassisSteeringWheel SteeringWheel = 6;
+  VehicleChassisAccelerator Accelerator = 7;
+  VehicleChassisBrake Brake = 8;
+}
+
+message VehicleChassisAxle {
+  VehicleChassisAxleRow1 Row1 = 1;
+  VehicleChassisAxleRow2 Row2 = 2;
+}
+
+message VehicleChassisAxleRow1 {
+  uint32 WheelCount = 1;
+  float WheelDiameter = 2;
+  float WheelWidth = 3;
+  float TireDiameter = 4;
+  uint32 TireWidth = 5;
+  uint32 TireAspectRatio = 6;
+  VehicleChassisAxleRow1Wheel Wheel = 7;
+}
+
+message VehicleChassisAxleRow1Wheel {
+  VehicleChassisAxleRow1WheelLeft Left = 1;
+  VehicleChassisAxleRow1WheelRight Right = 2;
+}
+
+message VehicleChassisAxleRow1WheelLeft {
+  VehicleChassisAxleRow1WheelLeftBrake Brake = 1;
+  VehicleChassisAxleRow1WheelLeftTire Tire = 2;
+}
+
+message VehicleChassisAxleRow1WheelLeftBrake {
+  uint32 FluidLevel = 1;
+  bool FluidLevelLow = 2;
+  uint32 PadWear = 3;
+  bool BrakesWorn = 4;
+}
+
+message VehicleChassisAxleRow1WheelLeftTire {
+  uint32 Pressure = 1;
+  bool PressureLow = 2;
+  float Temperature = 3;
+}
+
+message VehicleChassisAxleRow1WheelRight {
+  VehicleChassisAxleRow1WheelRightBrake Brake = 1;
+  VehicleChassisAxleRow1WheelRightTire Tire = 2;
+}
+
+message VehicleChassisAxleRow1WheelRightBrake {
+  uint32 FluidLevel = 1;
+  bool FluidLevelLow = 2;
+  uint32 PadWear = 3;
+  bool BrakesWorn = 4;
+}
+
+message VehicleChassisAxleRow1WheelRightTire {
+  uint32 Pressure = 1;
+  bool PressureLow = 2;
+  float Temperature = 3;
+}
+
+message VehicleChassisAxleRow2 {
+  uint32 WheelCount = 1;
+  float WheelDiameter = 2;
+  float WheelWidth = 3;
+  float TireDiameter = 4;
+  uint32 TireWidth = 5;
+  uint32 TireAspectRatio = 6;
+  VehicleChassisAxleRow2Wheel Wheel = 7;
+}
+
+message VehicleChassisAxleRow2Wheel {
+  VehicleChassisAxleRow2WheelLeft Left = 1;
+  VehicleChassisAxleRow2WheelRight Right = 2;
+}
+
+message VehicleChassisAxleRow2WheelLeft {
+  VehicleChassisAxleRow2WheelLeftBrake Brake = 1;
+  VehicleChassisAxleRow2WheelLeftTire Tire = 2;
+}
+
+message VehicleChassisAxleRow2WheelLeftBrake {
+  uint32 FluidLevel = 1;
+  bool FluidLevelLow = 2;
+  uint32 PadWear = 3;
+  bool BrakesWorn = 4;
+}
+
+message VehicleChassisAxleRow2WheelLeftTire {
+  uint32 Pressure = 1;
+  bool PressureLow = 2;
+  float Temperature = 3;
+}
+
+message VehicleChassisAxleRow2WheelRight {
+  VehicleChassisAxleRow2WheelRightBrake Brake = 1;
+  VehicleChassisAxleRow2WheelRightTire Tire = 2;
+}
+
+message VehicleChassisAxleRow2WheelRightBrake {
+  uint32 FluidLevel = 1;
+  bool FluidLevelLow = 2;
+  uint32 PadWear = 3;
+  bool BrakesWorn = 4;
+}
+
+message VehicleChassisAxleRow2WheelRightTire {
+  uint32 Pressure = 1;
+  bool PressureLow = 2;
+  float Temperature = 3;
+}
+
+message VehicleChassisParkingBrake {
+  bool IsEngaged = 1;
+}
+
+message VehicleChassisSteeringWheel {
+  int32 Angle = 1;
+  uint32 Tilt = 2;
+  uint32 Extension = 3;
+  string Position = 4;
+}
+
+message VehicleChassisAccelerator {
+  uint32 PedalPosition = 1;
+}
+
+message VehicleChassisBrake {
+  uint32 PedalPosition = 1;
+}
+
+message VehicleOBD {
+  uint32 PidsA = 1;
+  VehicleOBDStatus Status = 2;
+  repeated string DTCList = 3;
+  string FreezeDTC = 4;
+  string FuelStatus = 5;
+  float EngineLoad = 6;
+  float CoolantTemperature = 7;
+  float ShortTermFuelTrim1 = 8;
+  float LongTermFuelTrim1 = 9;
+  float ShortTermFuelTrim2 = 10;
+  float LongTermFuelTrim2 = 11;
+  float FuelPressure = 12;
+  float MAP = 13;
+  float EngineSpeed = 14;
+  float Speed = 15;
+  float TimingAdvance = 16;
+  float IntakeTemp = 17;
+  float MAF = 18;
+  float ThrottlePosition = 19;
+  string AirStatus = 20;
+  uint32 OxygenSensorsIn2Banks = 21;
+  VehicleOBDO2 O2 = 22;
+  uint32 OBDStandards = 23;
+  uint32 OxygenSensorsIn4Banks = 24;
+  bool AuxInputStatus = 25;
+  float RunTime = 26;
+  uint32 PidsB = 27;
+  float DistanceWithMIL = 28;
+  float FuelRailPressureVac = 29;
+  float FuelRailPressureDirect = 30;
+  VehicleOBDO2WR O2WR = 31;
+  float CommandedEGR = 32;
+  float EGRError = 33;
+  float CommandedEVAP = 34;
+  float FuelLevel = 35;
+  uint32 WarmupsSinceDTCClear = 36;
+  float DistanceSinceDTCClear = 37;
+  float EVAPVaporPressure = 38;
+  float BarometricPressure = 39;
+  VehicleOBDCatalyst Catalyst = 40;
+  uint32 PidsC = 41;
+  VehicleOBDDriveCycleStatus DriveCycleStatus = 42;
+  float ControlModuleVoltage = 43;
+  float AbsoluteLoad = 44;
+  float CommandedEquivalenceRatio = 45;
+  float RelativeThrottlePosition = 46;
+  float AmbientAirTemperature = 47;
+  float ThrottlePositionB = 48;
+  float ThrottlePositionC = 49;
+  float AcceleratorPositionD = 50;
+  float AcceleratorPositionE = 51;
+  float AcceleratorPositionF = 52;
+  float ThrottleActuator = 53;
+  float RunTimeMIL = 54;
+  float TimeSinceDTCCleared = 55;
+  float MaxMAF = 56;
+  string FuelType = 57;
+  float EthanolPercent = 58;
+  float EVAPVaporPressureAbsolute = 59;
+  float EVAPVaporPressureAlternate = 60;
+  float ShortTermO2Trim1 = 61;
+  float ShortTermO2Trim3 = 62;
+  float LongTermO2Trim1 = 63;
+  float LongTermO2Trim3 = 64;
+  float ShortTermO2Trim2 = 65;
+  float ShortTermO2Trim4 = 66;
+  float LongTermO2Trim2 = 67;
+  float LongTermO2Trim4 = 68;
+  float FuelRailPressureAbsolute = 69;
+  float RelativeAcceleratorPosition = 70;
+  float HybridBatteryRemaining = 71;
+  float OilTemperature = 72;
+  float FuelInjectionTiming = 73;
+  float FuelRate = 74;
+}
+
+message VehicleOBDStatus {
+  bool MIL = 1;
+  uint32 DTCCount = 2;
+  string IgnitionType = 3;
+}
+
+message VehicleOBDO2 {
+  VehicleOBDO2Sensor1 Sensor1 = 1;
+  VehicleOBDO2Sensor2 Sensor2 = 2;
+  VehicleOBDO2Sensor3 Sensor3 = 3;
+  VehicleOBDO2Sensor4 Sensor4 = 4;
+  VehicleOBDO2Sensor5 Sensor5 = 5;
+  VehicleOBDO2Sensor6 Sensor6 = 6;
+  VehicleOBDO2Sensor7 Sensor7 = 7;
+  VehicleOBDO2Sensor8 Sensor8 = 8;
+}
+
+message VehicleOBDO2Sensor1 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2Sensor2 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2Sensor3 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2Sensor4 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2Sensor5 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2Sensor6 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2Sensor7 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2Sensor8 {
+  float Voltage = 1;
+  float ShortTermFuelTrim = 2;
+}
+
+message VehicleOBDO2WR {
+  VehicleOBDO2WRSensor1 Sensor1 = 1;
+  VehicleOBDO2WRSensor2 Sensor2 = 2;
+  VehicleOBDO2WRSensor3 Sensor3 = 3;
+  VehicleOBDO2WRSensor4 Sensor4 = 4;
+  VehicleOBDO2WRSensor5 Sensor5 = 5;
+  VehicleOBDO2WRSensor6 Sensor6 = 6;
+  VehicleOBDO2WRSensor7 Sensor7 = 7;
+  VehicleOBDO2WRSensor8 Sensor8 = 8;
+}
+
+message VehicleOBDO2WRSensor1 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDO2WRSensor2 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDO2WRSensor3 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDO2WRSensor4 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDO2WRSensor5 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDO2WRSensor6 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDO2WRSensor7 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDO2WRSensor8 {
+  float Lambda = 1;
+  float Voltage = 2;
+  float Current = 3;
+}
+
+message VehicleOBDCatalyst {
+  VehicleOBDCatalystBank1 Bank1 = 1;
+  VehicleOBDCatalystBank2 Bank2 = 2;
+}
+
+message VehicleOBDCatalystBank1 {
+  float Temperature1 = 1;
+  float Temperature2 = 2;
+}
+
+message VehicleOBDCatalystBank2 {
+  float Temperature1 = 1;
+  float Temperature2 = 2;
+}
+
+message VehicleOBDDriveCycleStatus {
+  bool MIL = 1;
+  uint32 DTCCount = 2;
+  string IgnitionType = 3;
+}
+
+message VehicleDriver {
+  VehicleDriverIdentifier Identifier = 1;
+  float DistractionLevel = 2;
+  bool EyesOnRoad = 3;
+  float AttentiveProbability = 4;
+  float FatigueLevel = 5;
+  uint32 HeartRate = 6;
+}
+
+message VehicleDriverIdentifier {
+  string Subject = 1;
+  string Issuer = 2;
+}
+
+message VehicleService {
+  bool ServiceDue = 1;
+  float DistanceToService = 2;
+  int32 TimeToService = 3;
+}
+
