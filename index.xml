@@ -25,20 +25,8 @@ Some helpful tools are available in the vss-tools project.</description>
       <pubDate>Sun, 04 Aug 2019 13:05:11 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</guid>
-      <description>Specification format A domain specification is written as a flat YAML list, where each signal and branch is a self-contained YAML list element.
-The YAML list is a single file, called a vspec file.
-A vspec can, in addition to a YAML list, also contain include directives.
-An include directive refers to another vspec file that is to replace the directive, much like #include in C/C++. Please note that, from a YAML perspective, the include directive is just another comment.</description>
-    </item>
-    
-    <item>
-      <title>Data Types</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
-      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
-      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
-Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255   int8 signed 8-bit integer -128 127   uint16 unsigned 16-bit integer 0 65535   int16 signed 16-bit integer -32768 32767   uint32 unsigned 32-bit integer 0 4294967295   int32 signed 32-bit integer -2147483648 2147483647   uint64 unsigned 64-bit integer 0 2^64 - 1   int64 signed 64-bit integer -2^63 2^63 - 1   boolean boolean value 0/false 1/true   float floating point number -3.</description>
+      <description>Specification format The Vehicle Signal Specification domain specification consist of vspec files. vspec files are YAML files following the rule set defined for VSS. They also support the use of include directives to refer to other vspec files, much like #include in C/C++. . Please note that, from a YAML perspective, the include directive is just another comment.
+The file VehicleSignalSpecification.vspec serves as root and includes other vspec files from the VSS repository.</description>
     </item>
     
     <item>
@@ -50,10 +38,8 @@ Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255 
       <description>A branch entry describes a tree branch (or node) containing other branches and signals.
 A branch entry example is given below:
 Trunk: type: branch description: All signals related to the rear trunk aggregate: false The following elements are defined:
-Body.Trunk
-The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.
-type
-The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
+Body.Trunk The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.
+type The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
     </item>
     
     <item>
@@ -62,8 +48,8 @@ The value branch specifies that this is a branch entry (as opposed to a signal e
       <pubDate>Tue, 30 Jul 2019 14:46:01 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</guid>
-      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.
-A standardized vehicle data specification allows an industry actor to use a common naming space for communication and, ultimately, abstracts underlying vehicle implementation details.</description>
+      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. In short this means that VSS introduces:
+A syntax for defining vehicle signals in a structured manner. A catalog of signals related to vehicles. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.</description>
     </item>
     
     <item>
@@ -75,17 +61,7 @@ A standardized vehicle data specification allows an industry actor to use a comm
       <description>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
 The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).
 To learn more check
- Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development  </description>
-    </item>
-    
-    <item>
-      <title>Data Unit Types</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</link>
-      <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</guid>
-      <description>A signal can optionally specify a unit of measurement from the following set. This list composed with definition according to International Units (SI) and few automotive specific units: Specification, Wikipedia
-   Unit type Domain Description     km/h Speed Kilometers per hour   m/s Speed Meters per second   celsius Temperature Degrees Celsius   mbar Pressure millibar   Pa Pressure Pascal   kPa Pressure Kilo-Pascal   percent Relation Percent   ratio Relation Ratio   lat Position Decimal latitude   lon Position Decimal longitude   inch Distance Inch   mm Distance Millimeter   m Distance Meter   km Distance Kilometer   rpm Frequency Rotations per minute   Hz Frequency Frequency   W Power Watt   kW Power Kilowatt   kWh Power Kilowatt hours   ms Time Milliseconds   s Time Seconds   min Time Minutes   h Time Hours   g Weight Grams   kg Weight Kilograms   g/s Flow Grams per second   l/h Flow Liters per hour   m/s^2 Acceleration Acceleration in meters per second squared   cm/s^2 Acceleration Acceleration in centimeters per second squared   N Force Newton   Nm Force Torque   l Volume Liter   ml Volume Milliliter   degree Angle Angle in degrees   degrees/s Angular Speed Angular speed in degrees/s   l/100km Consumption Liters per 100 km   ml/100km Consumption Milliliters per 100 km   V Electrical Potential difference in volt   A Electrical Current in amperes   &amp;hellip; &amp;hellip; &amp;hellip;    </description>
+Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development </description>
     </item>
     
     <item>
@@ -105,40 +81,9 @@ Components of a domain taxonomy A domain taxonomy, like VSS, consists of three i
       
       <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</guid>
       <description>Various software frameworks exist to work with VSS data. If something is missing here, please open an issue and tell us.
-W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/UlfBj/W3C_VehicleSignalInterfaceImpl.
+W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/w3c/automotive-viss2.
 KUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.
 IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing platform for the Vehicle Edge.</description>
-    </item>
-    
-    <item>
-      <title>Sensors &amp; Actuators</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
-      <description>Sensors are signals to read values of properties in a vehicle. Values of signals typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
-Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
-    </item>
-    
-    <item>
-      <title>Attributes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
-      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification include default values for most attributes. It is expected that these default values do not fit all values. This means that an OEM must override the standard default values if a vehicle needs a different value.
-Attribute values can also change, similar to sensor values. The latter can be useful for attribute values that are likely to change during the lifetime of the vehicle.</description>
-    </item>
-    
-    <item>
-      <title>Enumerated Data Entries</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</guid>
-      <description>A data entry can optionally be enumerated, allowing it to be assigned a value from a specified set of values. An examples of a signal using enum is given below:
-Charging.ChargePlugType: datatype: string type: attribute default: ccs enum: [ &amp;#39;type 1&amp;#39;, &amp;#39;type 2&amp;#39;, &amp;#39;ccs&amp;#39;, &amp;#39;chademo&amp;#39; ] description: Type of charge plug available on the vehicle (CSS includes Type2). An enumerated signal entry has no min, max, or unit element.
-The enum element is an array of values, all of which must be specified in the enum list.</description>
     </item>
     
     <item>
@@ -147,7 +92,7 @@ The enum element is an array of values, all of which must be specified in the en
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</guid>
-      <description>As VSS resembles primarily the physical structure of the vehicle, so quite often you&amp;rsquo;ll find repetitions of branches and data entries (e.g. doors, axles, etc), which leads to hard-coded repetitions of branches and data entries in the specification. Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in the resulting tree. They are meant as a short-cut in the specification and interpreted by the tools.</description>
+      <description>VSS resembles primarily the physical structure of the vehicle, so quite often there is a need to repeat branches and data entries (e.g. doors, axles, etc). To avoid hard-coded repetitions of branches and data entries in the specification an instance-concept is supported. Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in the resulting tree. They are meant as a short-cut in the specification and interpreted by the tools.</description>
     </item>
     
     <item>
@@ -163,15 +108,73 @@ The include directive has the following format:</description>
     </item>
     
     <item>
-      <title>Private Branch</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/private_branch/</link>
+      <title>Overlay</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</link>
       <pubDate>Sun, 04 Aug 2019 12:46:30 +0200</pubDate>
       
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/private_branch/</guid>
-      <description>The private branch offers a way to clearly separate OEM specific definitions and the specification. It helps adapting the specification to the needs of the organisation.
-Extending and overriding Data Entries The core signal specification can be extended with additional signals through the use of private branches, as is shown in Fig 3.
-Fig 3. Extended signals
-In this case the core signal specification, vss_23.vspec is included by a OEM-specific master vspec file that adds the two proprietary signals Private.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</guid>
+      <description>VSS defines the standard catalog for vehicle signals independent of the used protocol and environment. In order to adopt the specification we realize that certain additions and modifications to the standard catalog are necessary. VSS Overlays are meant to bring you a standardized way of handling those changes.
+The following features with the intended usage patterns are currently supported:
+Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
+    </item>
+    
+    <item>
+      <title>Data Types</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
+      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
+      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
+Supported datatypes Name Type Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float floating point number -3.</description>
+    </item>
+    
+    <item>
+      <title>Struct Types</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</link>
+      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</guid>
+      <description>COVESA is in the process of introducing struct support. It is a still an experimental feature, and information on this page may be incorrect, may change, or may not be supported by tooling yet!
+Introduction VSS has historically supported only the following types:
+Integer-based types (e.g. uint8, int32) Float-based types (float, double) String Boolean In addition to this VSS arrays of the types given above has been supported. This has been considered insufficient for some use-cases.</description>
+    </item>
+    
+    <item>
+      <title>Data Unit Types</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</link>
+      <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</guid>
+      <description>Introduction to Data Unit Types in VSS It is in VSS possible for signals to specify a unit of measurement from a list of predefined data unit types. For most signals in the VSS standard catalog, a data unit type has been selected. A typical example is Vehicle.Speed, as shown below.
+Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed. The ambition when selecting data unit types for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.</description>
+    </item>
+    
+    <item>
+      <title>Sensors &amp; Actuators</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
+      <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
+      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
+Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
+    </item>
+    
+    <item>
+      <title>Attributes</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
+      <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
+      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle. If the standard defines a default value but it does not fit the actual vehicle, then the OEM must override the standard default value.</description>
+    </item>
+    
+    <item>
+      <title>Value restrictions</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</link>
+      <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</guid>
+      <description>Specifying allowed values Optionally it is possible to define an array of allowed values, which will restrict the usage of the data entry in the implementation of the specification. It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly. The datatype of the array elements is the datatype defined for the data entry itself. For attributes it is possible to optionally set a default value.</description>
     </item>
     
   </channel>

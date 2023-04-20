@@ -28,7 +28,7 @@ Some helpful tools are available in the vss-tools project.</description>
       <description>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
 The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).
 To learn more check
- Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development  </description>
+Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development </description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@ To learn more check
       
       <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</guid>
       <description>Various software frameworks exist to work with VSS data. If something is missing here, please open an issue and tell us.
-W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/UlfBj/W3C_VehicleSignalInterfaceImpl.
+W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/w3c/automotive-viss2.
 KUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.
 IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing platform for the Vehicle Edge.</description>
     </item>
