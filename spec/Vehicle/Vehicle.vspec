@@ -1,4 +1,5 @@
 #
+# (C) 2022 Robert Bosch GmbH
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
 #
@@ -17,31 +18,31 @@
 
 VersionVSS:
   type: branch
-  description: Supported Version of VSS
+  description: Supported Version of VSS.
 
 VersionVSS.Major:
   datatype: uint32
   type: attribute
-  default: 3
-  description: Supported Version of VSS - Major version
+  default: 4
+  description: Supported Version of VSS - Major version.
 
 VersionVSS.Minor:
   datatype: uint32
   type: attribute
-  default: 0  
-  description: Supported Version of VSS - Minor version
+  default: 0
+  description: Supported Version of VSS - Minor version.
 
 VersionVSS.Patch:
   datatype: uint32
   type: attribute
   default: 0
-  description: Supported Version of VSS - Patch version
+  description: Supported Version of VSS - Patch version.
 
 VersionVSS.Label:
   datatype: string
   type: attribute
-  default: "develop"
-  description: Label to further describe the version
+  default: 'develop'
+  description: Label to further describe the version.
 
 #
 # Vehicle identification attributes.
@@ -49,103 +50,111 @@ VersionVSS.Label:
 
 VehicleIdentification:
   type: branch
-  description: Attributes that identify a vehicle
+  description: Attributes that identify a vehicle.
 
 VehicleIdentification.VIN:
   datatype: string
   type: attribute
-  description: 17-character Vehicle Identification Number (VIN) as defined by ISO 3779
+  description: 17-character Vehicle Identification Number (VIN) as defined by ISO 3779.
 
 VehicleIdentification.WMI:
   datatype: string
   type: attribute
-  description: 3-character World Manufacturer Identification (WMI) as defined by ISO 3780
+  description: 3-character World Manufacturer Identification (WMI) as defined by ISO 3780.
 
 VehicleIdentification.Brand:
   datatype: string
   type: attribute
-  description: Vehicle brand or manufacturer
+  description: Vehicle brand or manufacturer.
 
 VehicleIdentification.Model:
   datatype: string
   type: attribute
-  description: Vehicle model
+  description: Vehicle model.
 
 VehicleIdentification.Year:
   datatype: uint16
   type: attribute
-  description: Model year of the vehicle
+  description: Model year of the vehicle.
 
 
 #
-# Imports from schema.org/Car
-#
+# Imports from https://schema.org/Car
+# Names from https://schema.org/Car reused, but first character capitalized
+# Example: Original schema.org name: https://schema.org/acrissCode
+#          Name used in VSS: VehicleIdentification.AcrissCode
+# Note: Only a subset of the properties from https://schema.org/Car have been imported.
 
-VehicleIdentification.ACRISSCode:
+VehicleIdentification.AcrissCode:
   datatype: string
   type: attribute
   description: The ACRISS Car Classification Code is a code used by many car rental companies.
 
-VehicleIdentification.bodyType:
+VehicleIdentification.BodyType:
   datatype: string
   type: attribute
   description: Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
 
-VehicleIdentification.dateVehicleFirstRegistered:
+VehicleIdentification.DateVehicleFirstRegistered:
   datatype: string
   type: attribute
-  description: The date of the first registration of the vehicle with the respective public authorities.
+  description: The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.
 
-VehicleIdentification.meetsEmissionStandard:
+VehicleIdentification.MeetsEmissionStandard:
   datatype: string
   type: attribute
   description: Indicates that the vehicle meets the respective emission standard.
 
-VehicleIdentification.productionDate:
+VehicleIdentification.ProductionDate:
   datatype: string
   type: attribute
-  description: The date of production of the item, e.g. vehicle.
+  description: The date in ISO 8601 format of production of the item, e.g. vehicle.
 
-VehicleIdentification.purchaseDate:
+VehicleIdentification.PurchaseDate:
   datatype: string
   type: attribute
-  description: The date the item e.g. vehicle was purchased by the current owner.
+  description: The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.
 
-VehicleIdentification.vehicleModelDate:
+VehicleIdentification.VehicleModelDate:
   datatype: string
   type: attribute
-  description: The release date of a vehicle model (often used to differentiate versions of the same make and model).
+  description: The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).
 
-VehicleIdentification.vehicleConfiguration:
+VehicleIdentification.VehicleConfiguration:
   datatype: string
   type: attribute
   description: A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
 
-VehicleIdentification.vehicleSeatingCapacity:
+VehicleIdentification.VehicleSeatingCapacity:
   datatype: uint16
   type: attribute
   description: The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
 
-VehicleIdentification.vehicleSpecialUsage:
+VehicleIdentification.VehicleSpecialUsage:
   datatype: string
   type: attribute
   description: Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.
 
-VehicleIdentification.vehicleinteriorColor:
+VehicleIdentification.VehicleInteriorColor:
   datatype: string
   type: attribute
   description: The color or color combination of the interior of the vehicle.
 
-VehicleIdentification.vehicleinteriorType:
+VehicleIdentification.VehicleInteriorType:
   datatype: string
   type: attribute
   description: The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).
 
-VehicleIdentification.knownVehicleDamages:
+VehicleIdentification.KnownVehicleDamages:
   datatype: string
   type: attribute
   description: A textual description of known damages, both repaired and unrepaired.
 
+VehicleIdentification.OptionalExtras:
+  datatype: string[]
+  type: attribute
+  description: Optional extras refers to all car equipment options that are not installed as standard by the manufacturer.
+  comment: Allowed values are not standardized, each OEM can specify detail descriptions of array elements.
 #
 # Vehicle signals
 #
@@ -153,59 +162,111 @@ VehicleIdentification.knownVehicleDamages:
 LowVoltageSystemState:
   datatype: string
   type: sensor
-  enum: [
-    "UNDEFINED", # State of low voltage system not known
-    "LOCK",      # Low voltage system off, steering lock or equivalent engaged
-    "OFF",       # Low voltage system off, steering lock or equivalent not engaged
-    "ACC",       # Vehicle Accessories on/living
-    "ON",        # Engine start enabled (e.g. ignition on, diesel pre-heating, electrical drive released)
-    "START"      # Engine starter relay closed (not applicable for electrical vehicles)
+  allowed: [
+    'UNDEFINED', # State of low voltage system not known
+    'LOCK',      # Low voltage system off, steering lock or equivalent engaged
+    'OFF',       # Low voltage system off, steering lock or equivalent not engaged
+    'ACC',       # Vehicle Accessories on/living
+    'ON',        # Engine start enabled (e.g. ignition on, diesel pre-heating, electrical drive released)
+    'START'      # Engine starter relay closed (not applicable for electrical vehicles)
     ]
   description: State of the supply voltage of the control units (usually 12V).
+
+##
+#  Low voltage battery
+##
+LowVoltageBattery:
+  type: branch
+  description: Signals related to low voltage battery.
+
+#include Battery.vspec LowVoltageBattery
+
 
 Speed:
   datatype: float
   type: sensor
   unit: km/h
-  description: Vehicle speed
+  description: Vehicle speed.
 
 TravelledDistance:
+  deprecation: V3.1 moved to Vehicle.TraveledDistance
   datatype: float
   type: sensor
   unit: km
-  description: Odometer reading, total distance travelled during the lifetime of the vehicle.
+  description: Odometer reading, total distance traveled during the lifetime of the vehicle.
+
+TraveledDistance:
+  datatype: float
+  type: sensor
+  unit: km
+  description: Odometer reading, total distance traveled during the lifetime of the vehicle.
+
+TraveledDistanceSinceStart:
+  datatype: float
+  type: sensor
+  unit: km
+  description: Distance traveled since start of current trip.
+  comment: A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode).
+           A trip is considered to end when engine is no longer enabled.
+           The signal may however keep the value of the last trip until a new trip is started.
+
+StartTime:
+  datatype: string
+  type: attribute
+  default: '0000-01-01T00:00Z'
+  description: Start time of current or latest trip, formatted according to ISO 8601 with UTC time zone.
+  comment: This signal is supposed to be set whenever a new trip starts.
+           A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode).
+           A trip is considered to end when engine is no longer enabled.
+           The default value indicates that the vehicle never has been started, or that latest start time is unknown.
+
+TripDuration:
+  datatype: float
+  type: sensor
+  unit: s
+  description: Duration of latest trip.
+  comment: This signal is not assumed to be continuously updated, but instead set to 0 when a trip starts
+           and set to the the actual duration of the trip when a trip ends.
+           A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode).
+           A trip is considered to end when engine is no longer enabled.
 
 TripMeterReading:
   datatype: float
-  type: sensor
+  type: actuator
   unit: km
-  description: Current trip meter reading
+  description: Trip meter reading.
+  comment: The trip meter is an odometer that can be manually reset by the driver
 
-AmbientAirTemperature:
-  datatype: float
+IsBrokenDown:
+  datatype: boolean
   type: sensor
-  unit: celsius
-  description: Ambient air temperature outside the vehicle.
-
+  description: Vehicle breakdown or any similar event causing vehicle to stop on the road,
+               that might pose a risk to other road users.
+               True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems.
+               False = Vehicle not broken down.
+  comment: Actual criteria and method used to decide if a vehicle is broken down is implementation specific.
 
 IsMoving:
   datatype: boolean
   type: sensor
-  description: Indicates whether the vehicle is stationary or moving
+  description: Indicates whether the vehicle is stationary or moving.
 
 AverageSpeed:
   datatype: float
   type: sensor
   unit: km/h
-  description: Average speed for the current trip
-
+  description: Average speed for the current trip.
+  comment: A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode).
+           A trip is considered to end when engine is no longer enabled.
+           The signal may however keep the value of the last trip until a new trip is started.
+           Calculation of average speed may exclude periods when the vehicle for example is not moving or transmission is in neutral.
 
 #
 # Spatial Acceleration
 #
 Acceleration:
   type: branch
-  description: Spatial acceleration
+  description: Spatial acceleration. Axis definitions according to ISO 8855.
 
 Acceleration.Longitudinal:
   datatype: float
@@ -231,22 +292,22 @@ Acceleration.Vertical:
 #
 AngularVelocity:
   type: branch
-  description: Spatial rotation
+  description: Spatial rotation. Axis definitions according to ISO 8855.
 
 AngularVelocity.Roll:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: degrees/s
   description: Vehicle rotation rate along X (longitudinal).
 
 AngularVelocity.Pitch:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: degrees/s
   description: Vehicle rotation rate along Y (lateral).
 
 AngularVelocity.Yaw:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: degrees/s
   description: Vehicle rotation rate along Z (vertical).
@@ -261,14 +322,14 @@ RoofLoad:
   unit: kg
   description: The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
 
-cargoVolume:
+CargoVolume:
   datatype: float
   type: attribute
   unit: l
   description: The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
   min: 0
 
-emissionsCO2:
+EmissionsCO2:
   datatype: int16
   type: attribute
   description: The CO2 emissions.
@@ -340,9 +401,9 @@ Width:
 #
 Trailer:
   type: branch
-  description: Trailer signals
+  description: Trailer signals.
 
-Trailer.Connected:
+Trailer.IsConnected:
   datatype: boolean
   type: sensor
   description: Signal indicating if trailer is connected or not.
@@ -358,7 +419,7 @@ CurrentLocation:
 CurrentLocation.Timestamp:
   datatype: string
   type: sensor
-  description: GNSS Timestamp for latest position, formatted according to ISO 8601 with UTC time zone.
+  description: Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.
 
 CurrentLocation.Latitude:
   datatype: double
@@ -366,7 +427,7 @@ CurrentLocation.Latitude:
   min: -90
   max: 90
   unit: degrees
-  description: Current latitude of vehicle according to WGS 84.
+  description: Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
 
 CurrentLocation.Longitude:
   datatype: double
@@ -374,7 +435,7 @@ CurrentLocation.Longitude:
   min: -180
   max: 180
   unit: degrees
-  description: Current longitude of vehicle according to WGS 84.
+  description: Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
 
 CurrentLocation.Heading:
   datatype: double
@@ -382,17 +443,73 @@ CurrentLocation.Heading:
   min: 0
   max: 360
   unit: degrees
-  description: Current magnetic compass heading.
+  description: Current heading relative to geographic north.
+               0 = North, 90 = East, 180 = South, 270 = West.
 
-CurrentLocation.Accuracy:
+CurrentLocation.HorizontalAccuracy:
   datatype: double
   type: sensor
   unit: m
-  description: Accuracy level of the latitude and longitude coordinates.
+  description: Accuracy of the latitude and longitude coordinates.
 
 CurrentLocation.Altitude:
   datatype: double
   type: sensor
   unit: m
-  description: Current altitude relative to WGS 84 reference ellipsoid.
+  description: Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.
 
+CurrentLocation.VerticalAccuracy:
+  datatype: double
+  type: sensor
+  unit: m
+  description: Accuracy of altitude.
+
+CurrentLocation.GNSSReceiver:
+  type: branch
+  description: Information on the GNSS receiver used for determining current location.
+
+CurrentLocation.GNSSReceiver.FixType:
+  datatype: string
+  type: sensor
+  allowed: ['NONE',
+            'TWO_D',
+            'TWO_D_SATELLITE_BASED_AUGMENTATION',
+            'TWO_D_GROUND_BASED_AUGMENTATION',
+            'TWO_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION',
+            'THREE_D',
+            'THREE_D_SATELLITE_BASED_AUGMENTATION',
+            'THREE_D_GROUND_BASED_AUGMENTATION',
+            'THREE_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION']
+  description: Fix status of GNSS receiver.
+
+CurrentLocation.GNSSReceiver.MountingPosition:
+  type: branch
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+
+CurrentLocation.GNSSReceiver.MountingPosition.X:
+  datatype: int16
+  type: attribute
+  unit: mm
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = forward of rear axle. Negative values = backward of rear axle.
+
+CurrentLocation.GNSSReceiver.MountingPosition.Y:
+  datatype: int16
+  type: attribute
+  unit: mm
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = left of origin. Negative values = right of origin.
+               Left/Right is as seen from driver perspective, i.e. by a person looking forward.
+
+CurrentLocation.GNSSReceiver.MountingPosition.Z:
+  datatype: int16
+  type: attribute
+  unit: mm
+  description: Mounting position of GNSS receiver on Z-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = above center of rear axle. Negative values = below center of rear axle.
+
+#include include/PowerOptimize.vspec

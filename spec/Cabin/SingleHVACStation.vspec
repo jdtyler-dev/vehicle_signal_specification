@@ -21,13 +21,11 @@ FanSpeed:
 Temperature:
   datatype: int8
   type: actuator
-  min: -50
-  max: 50
   unit: celsius
   description: Temperature
 
 AirDistribution:
   datatype: string
   type: actuator
-  enum: [ "up", "middle", "down" ]
+  allowed: ['UP', 'MIDDLE', 'DOWN']
   description: Direction of airstream

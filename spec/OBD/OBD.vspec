@@ -41,7 +41,7 @@ Status:
   type: branch
   description: PID 01 - OBD status
 
-Status.MIL:
+Status.IsMILOn:
   datatype: boolean
   type: sensor
   description: Malfunction Indicator Light (MIL) False = Off, True = On
@@ -54,7 +54,7 @@ Status.DTCCount:
 Status.IgnitionType:
   datatype: string
   type: sensor
-  enum: [ "spark", "compression" ]
+  allowed: ['SPARK', 'COMPRESSION']
   description: Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)
 
 DTCList:
@@ -171,7 +171,7 @@ OxygenSensorsIn2Banks:
   datatype: uint8
   type: sensor
   description: PID 13 - Presence of oxygen sensors in 2 banks. [A0..A3] == Bank 1, Sensors 1-4. [A4..A7] == Bank 2, Sensors 1-4
-  
+
 O2:
   instances:
     - Sensor[1,8]
@@ -183,7 +183,7 @@ O2.Voltage:
   type: sensor
   unit: V
   description: PID 1x (byte A) - Sensor voltage
-  
+
 O2.ShortTermFuelTrim:
   datatype: float
   type: sensor
@@ -200,7 +200,7 @@ OxygenSensorsIn4Banks:
   type: sensor
   description: PID 1D - Presence of oxygen sensors in 4 banks. Similar to PID 13, but [A0..A7] == [B1S1, B1S2, B2S1, B2S2, B3S1, B3S2, B4S1, B4S2]
 
-AuxInputStatus:
+IsPTOActive:
   datatype: boolean
   type: sensor
   description: PID 1E - Auxiliary input status (power take off)
@@ -244,7 +244,7 @@ O2WR.Lambda:
   datatype: float
   type: sensor
   description: PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor
-  
+
 O2WR.Voltage:
   datatype: float
   type: sensor
@@ -349,7 +349,7 @@ DriveCycleStatus:
   type: branch
   description: PID 41 - OBD status for the current drive cycle
 
-DriveCycleStatus.MIL:
+DriveCycleStatus.IsMILOn:
   datatype: boolean
   type: sensor
   description: Malfunction Indicator Light (MIL) - False = Off, True = On
@@ -362,7 +362,7 @@ DriveCycleStatus.DTCCount:
 DriveCycleStatus.IgnitionType:
   datatype: string
   type: sensor
-  enum: [ "spark", "compression" ]
+  allowed: ['SPARK', 'COMPRESSION']
   description: Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)
 
 ControlModuleVoltage:
@@ -477,7 +477,7 @@ ShortTermO2Trim1:
   type: sensor
   unit: percent
   description: PID 55 (byte A) - Short term secondary O2 trim - Bank 1
-  
+
 ShortTermO2Trim3:
   datatype: float
   type: sensor
@@ -489,7 +489,7 @@ LongTermO2Trim1:
   type: sensor
   unit: percent
   description: PID 56 (byte A) - Long term secondary O2 trim - Bank 1
-  
+
 LongTermO2Trim3:
   datatype: float
   type: sensor
@@ -501,7 +501,7 @@ ShortTermO2Trim2:
   type: sensor
   unit: percent
   description: PID 57 (byte A) - Short term secondary O2 trim - Bank 2
-  
+
 ShortTermO2Trim4:
   datatype: float
   type: sensor
@@ -513,7 +513,7 @@ LongTermO2Trim2:
   type: sensor
   unit: percent
   description: PID 58 (byte A) - Long term secondary O2 trim - Bank 2
-  
+
 LongTermO2Trim4:
   datatype: float
   type: sensor

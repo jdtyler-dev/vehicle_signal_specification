@@ -10,27 +10,43 @@
 # Fuel system for ICE / hybrids
 #
 
-FuelType:
-  datatype: string
+SupportedFuelTypes:
+  datatype: string[]
   type: attribute
-  enum: [ "unknown", "gasoline", "diesel", "electric", "hybrid", "E85", "CNG", "LPG" ]
-  default: "unknown"
-  description: Defines the fuel type of the vehicle
+  allowed: ['GASOLINE', 'DIESEL', 'E85', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']
+  description: High level information of fuel types supported
+  comment: If a vehicle also has an electric drivetrain (e.g. hybrid) that will be obvious from the PowerTrain.Type signal.
+
+SupportedFuel:
+  datatype: string[]
+  type: attribute
+  allowed: ['E5_95', 'E5_98', 'E10_95', 'E10_98', 'E85', 'B7', 'B10', 'B20', 'B30', 'B100',
+            'XTL', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']
+  description: Detailed information on fuels supported by the vehicle.
+               Identifiers originating from DIN EN 16942:2021-08, appendix B,
+               with additional suffix for octane (RON) where relevant.
+  comment: RON 95 is sometimes referred to as Super, RON 98 as Super Plus.
 
 HybridType:
   datatype: string
   type: attribute
-  enum: [ "unknown", "not_applicable", "stop_start", "belt_ISG", "CIMG", "PHEV" ]
-  default: "unknown"
-  description: Defines the hybrid type of the vehicle
+  allowed: ['UNKNOWN', 'NOT_APPLICABLE', 'STOP_START', 'BELT_ISG', 'CIMG', 'PHEV']
+  default: 'UNKNOWN'
+  description: Defines the hybrid type of the vehicle.
 
 TankCapacity:
   datatype: float
   type: attribute
   unit: l
-  description: Capacity of the fuel tank in liters
+  description: Capacity of the fuel tank in liters.
 
-Level:
+AbsoluteLevel:
+  datatype: float
+  type: sensor
+  unit: l
+  description: Current available fuel in the fuel tank expressed in liters.
+
+RelativeLevel:
   datatype: uint8
   type: sensor
   unit: percent
@@ -66,19 +82,23 @@ ConsumptionSinceStart:
   type: sensor
   unit: l
   description: Fuel amount in liters consumed since start of current trip.
+  comment: A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode).
+           A trip is considered to end when engine is no longer enabled.
+           The signal may however keep the value of the last trip until a new trip is started.
 
 TimeSinceStart:
+  deprecation: V3.1 replaced by Vehicle.StartTime and Vehicle.TripDuration
   datatype: uint32
   type: sensor
   unit: s
   description: Time in seconds elapsed since start of current trip.
 
-EngineStopStartEnabled:
+IsEngineStopStartEnabled:
   datatype: boolean
   type: sensor
-  description: Indicates whether eco start stop is currently enabled
+  description: Indicates whether eco start stop is currently enabled.
 
-LowFuelLevel:
+IsFuelLevelLow:
   datatype: boolean
   type: sensor
-  description: Indicates that the fuel level is low (e.g. <50km range)
+  description: Indicates that the fuel level is low (e.g. <50km range).

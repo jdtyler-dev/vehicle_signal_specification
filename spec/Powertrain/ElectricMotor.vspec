@@ -10,6 +10,10 @@
 # EV Motor signals and attributes
 #
 
+EngineCode:
+  datatype: string
+  type: attribute
+  description: Engine code designation, as specified by vehicle manufacturer.
 
 MaxPower:
   datatype: uint16
@@ -42,12 +46,10 @@ MaxRegenTorque:
 #
 # Motor rotations per minute
 #
-Rpm:
+Speed:
   datatype: int32
   type: sensor
   unit: rpm
-  min: -100000
-  max: 100000
   description: Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.
 
 
@@ -58,8 +60,6 @@ Temperature:
   datatype: int16
   type: sensor
   unit: celsius
-  min: -50
-  max: 200
   description: Motor temperature.
 
 
@@ -70,8 +70,6 @@ CoolantTemperature:
   datatype: int16
   type: sensor
   unit: celsius
-  min: -50
-  max: 200
   description: Motor coolant temperature (if applicable).
 
 
@@ -82,8 +80,6 @@ Power:
   datatype: int16
   type: sensor
   unit: kW
-  min: -2000
-  max: 2000
   description: Current motor power output. Negative values indicate regen mode.
 
 #
@@ -93,6 +89,4 @@ Torque:
   datatype: int16
   type: sensor
   unit: Nm
-  min: -5000
-  max: 5000
   description: Current motor torque. Negative values indicate regen mode.

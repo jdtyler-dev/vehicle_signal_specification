@@ -1,7 +1,7 @@
 #
+# (C) 2020 Robert Bosch GmbH
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
-# (C) 2020 Robert Bosch GmbH
 #
 # All files and artifacts in this repository are licensed under the
 # provisions of the license provided by the LICENSE file in this repository.
@@ -17,6 +17,13 @@
 #
 # Engine attributes
 #
+
+EngineCode:
+  datatype: string
+  type: attribute
+  description: Engine code designation, as specified by vehicle manufacturer.
+  comment: For hybrid vehicles the engine code may refer to the combination of
+           combustion and electric engine.
 
 Displacement:
   datatype: uint16
@@ -39,10 +46,10 @@ Bore:
 Configuration:
   datatype: string
   type: attribute
-  enum: [ "unknown", "straight", "V", "boxer", "W",
-        "rotary", "radial", "square", "H", "U", "opposed", "X" ]
+  allowed: ['UNKNOWN', 'STRAIGHT', 'V', 'BOXER', 'W',
+        'ROTARY', 'RADIAL', 'SQUARE', 'H', 'U', 'OPPOSED', 'X']
   description: Engine configuration.
-  default: "unknown"
+  default: 'UNKNOWN'
 
 NumberOfCylinders:
   datatype: uint16
@@ -88,26 +95,19 @@ MaxTorque:
 AspirationType:
   datatype: string
   type: attribute
-  enum: [ "unknown", "natural", "supercharger", "turbocharger" ]
-  default: "unknown"
+  allowed: ['UNKNOWN', 'NATURAL', 'SUPERCHARGER', 'TURBOCHARGER']
+  default: 'UNKNOWN'
   description: Type of aspiration (natural, turbocharger, supercharger etc).
-
-FuelType:
-  datatype: string
-  type: attribute
-  enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
-  default: "unknown"
-  description: Type of fuel that the engine runs on.
 
 EngineOilLevel:
   datatype: string
   type: sensor
-  enum: [ 
-    "critically_low",  # Critically low, immediate action required
-    "low",             # Level below recommended range, but not critical
-    "normal",          # Within normal range, no need for driver action
-    "high",            # Level above recommended range, but not critical
-    "critically_high"  # Critically high, immediate action required
+  allowed: [
+    'CRITICALLY_LOW',  # Critically low, immediate action required
+    'LOW',             # Level below recommended range, but not critical
+    'NORMAL',          # Within normal range, no need for driver action
+    'HIGH',            # Level above recommended range, but not critical
+    'CRITICALLY_HIGH'  # Critically high, immediate action required
     ]
   description: Engine oil level.
 
@@ -282,7 +282,7 @@ DieselParticulateFilter.InletTemperature:
   type: sensor
   unit: celsius
   description: Inlet temperature of Diesel Particulate Filter.
-  
+
 #
 # Current outlet Temperature of Diesel Particulate Filter
 #
@@ -291,7 +291,7 @@ DieselParticulateFilter.OutletTemperature:
   type: sensor
   unit: celsius
   description: Outlet temperature of Diesel Particulate Filter.
-  
+
 #
 # Current delta pressure of Diesel Particulate Filter
 #
@@ -300,5 +300,3 @@ DieselParticulateFilter.DeltaPressure:
   type: sensor
   unit: Pa
   description: Delta Pressure of Diesel Particulate Filter.
-  
-  

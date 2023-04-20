@@ -12,9 +12,7 @@
 #
 # This top level vehicle specification file includes all other vspec
 # files into a complete specification that can be processed
-# by the document generation tools available in
-#
-# https://github.com/GENIVI/vehicle_signal_specification/tree/develop/tools
+# by the tools available in https://github.com/COVESA/vss-tools
 #
 
 #
@@ -28,30 +26,6 @@ Vehicle:
 # Vehicle branch created above.
 
 #include Vehicle/Vehicle.vspec Vehicle
-
-
-
-#
-# An uncontrolled private branch.
-#
-# Top level speed, location, and other vehicle state?
-# odo. trip.
-# Alias Speed -> Drivetrain.Transmission.Speed
-#
-# Global.Speed
-# Global.Location
-# Global.Odometer
-#
-# Keep to minimum
-#
-# Put in accuracy as attribute for signal
-#
-
-Vehicle.Private:
-  type: branch
-  description: Uncontrolled branch where non-public signals can be defined.
-
-#include Private/Private.vspec Vehicle.Private
 
 
 #
@@ -193,6 +167,16 @@ Vehicle.Driver:
 
 #include Driver/Driver.vspec Vehicle.Driver
 
+
+#
+# Exterior information
+#
+Vehicle.Exterior:
+  type: branch
+  description: Information about exterior measured by vehicle.
+
+#include Vehicle/Exterior.vspec Vehicle.Exterior
+
 #
 # Service information
 #
@@ -201,3 +185,11 @@ Vehicle.Service:
   description: Service data.
 
 #include Vehicle/Service.vspec Vehicle.Service
+#
+# Connectivity information
+#
+Vehicle.Connectivity:
+  type: branch
+  description: Connectivity data.
+
+#include Vehicle/Connectivity.vspec Vehicle.Connectivity
